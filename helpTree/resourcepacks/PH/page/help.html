@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>如何使用这份帮助文档</title>
+<link href="helpTree.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="../js/helpTree.js"></script>
+</head>
+	
+<body>
+	<div class="topbar"></div>
+	<div class="page">
+		<h1>如何使用这份帮助文档</h1>
+		<p>这份帮助文档主要仿造了维基百科所制作，如果您了解维基百科的话那可以关闭这个页面了。</p>
+		
+		<!--目录开始-->
+		<table class="tog_index" hide="1">
+			
+		</table>
+		<!--目录结束-->
+		
+		<br>
+		<h2 name="功能说明">功能说明</h2>
+		<p>接下来讲解一下这份帮助文档的特色功能。</p>
+		<h3>目录</h3>
+		<p>刚才您也看见了，文档的开篇摘要以下、正文内容以上有一个目录，这在长文档中非常有用，您可以点击目录中的项目快速抵达您想看的章节。如果文章过短，目录默认折叠甚至不显示。</p>
+		<h3>注释</h3>
+		<p>和维基一样，注释会在文本中加上一个角标链接，比如这个链接自MCBBS的注释。<a class="note" title="MCBBS" url="https://www.mcbbs.net"></a></p>
+		<p>将鼠标悬停在角标上，您可以看到其描述。如果需要查看具体内容，可点击角标，这将会跳转到末尾的“注释与外部链接”章节。另外，注释内容不一定是超链接。<a class="note" title="这是一条普通的注释。"></a></p>
+		<p>另外，您还可以在注释与外部链接章节中点击左侧的“↑[序号]”回到注释的位置。</p>
+		<h3>帮助信息</h3>
+		<p>为了避免啰嗦，一些繁琐的信息会被一笔带过，不过您仍然可以通过鼠标悬停来查看详细信息，这种浓缩了信息的文本会显示一条点线，并且鼠标经过时鼠标样式也会发生改变，<span class="helpinfo" title="你发现我了！">就像这样</span>。</p>
+		
+		<br>
+		<h2 name="技术性信息">技术性信息</h2>
+		<p>如果您只是来看看这份帮助文档所介绍的作品，那么可以到此为止了，接下来是针对这份帮助文档的程序上的一些描述，如果您有意向使用这份帮助文档给您的作品编写帮助，请继续读下去。</p>
+		<p>本文档使用HTML文本标记语言编写，包含CSS层叠样式表和JS脚本，左侧的菜单我是从网上抄的，所以不要问我如何实现。如果你要编写这份文档，您至少需要了解HTML和JS。</p>
+		<p>文档的编写比较自由，您可以随意插入HTML代码，就像制作网页那样。不过，这里提供了一些便捷的工具。比如刚才介绍的目录和注释，这些都是由JS实现的，可以自动完成内容的添加，无需人工编辑。不过我刚才说的目录默认隐藏什么的，是人工设置的，它不会自己分析页面长度。</p>
+		
+		<h3>目录</h3>
+		<p>插入目录仅需一行代码即可实现：</p>
+		<div class="textarea">
+			<xmp><table class="tog_index"></table></xmp>
+		</div>
+		<p>若需要让目录默认折叠，可以添加一个hide参数：</p>
+		<div class="textarea">
+			<xmp><table class="tog_index" hide="1"></table></xmp>
+		</div>
+		
+		<h3>注释</h3>
+		<p>如果只是普通的注释，只需在需要注释的文本后方插入以下代码即可：</p>
+		<div class="textarea">
+			<xmp><a class="note" title="注释内容"></a></xmp>
+		</div>
+		<p>若需要添加带链接注释，则还需要使用url参数：</p>
+		<div class="textarea">
+			<xmp><a class="note" title="注释内容" url="http://www.baidu.com/"></a></xmp>
+		</div>
+		<p>最后一步，在末尾的“注释与外部链接”章节添加以下代码即可：</p>
+		<div class="textarea">
+			<xmp><references/></xmp>
+		</div>
+		
+		<h3>帮助信息</h3>
+		<p>要插入帮助信息，需要使用一个标签将目标文本包裹住，如下所示：</p>
+		<div class="textarea">
+			<xmp><span class="helpinfo" title="帮助信息内容">显示的文本</span></xmp>
+		</div>
+		
+		<h3>代码展示</h3>
+		<p><s>禁止套娃！</s></p>
+		<div class="textarea">
+			<xmp>＜div class="textarea"＞</xmp>
+			<xmp>    ＜xmp＞第一行代码＜/xmp＞</xmp>
+			<xmp>    ＜xmp＞第二行代码＜/xmp＞</xmp>
+			<xmp>＜/div＞</xmp>
+		</div>
+		
+		<p>由于作者比较懒，所以这个教程只能到此为止了，以后再更新，之后就需要您自己探索了。<s>说白了这个章节就是为了拉长页面测试跳转功能而编写的。</s></p>
+		
+		<br>
+		<h2 name="注释与外部链接">注释与外部链接</h2>
+			<references/>
+	</div>
+	<div class="bottombar"></div>
+	<script type="text/javascript">pageload();</script>
+	<script type="text/javascript">indexload();</script>
+	<script type="text/javascript">notesload();</script>
+</body>
+</html>
