@@ -70,7 +70,7 @@ a:active {
 	text-indent: 2em;
 }
 
-.button {
+.bottom {
 	float: right;
 	width: 740px;
 	min-height: 150px;
@@ -95,6 +95,36 @@ a:active {
 	padding: 0 15px 0 15px;
 }
 
+.window {
+	width: 450px;
+	min-height: 50px;
+	margin: 75px auto;
+	padding: 50px
+}
+
+.button-bar{
+	margin: 25px 0 0 0;
+}
+
+.button {
+	background: #FFF;
+	border: solid #AAA 1px;
+	display: block;
+	width: 200px;
+	margin: 5px 0;
+}
+.button-blue {
+	border-left: solid #6BADF9 7px;
+	padding: 0 0 0 7px;
+}
+.button:active{
+	background: #EEE;
+	border: solid #AAA 1px;
+	display: block;
+	width: 200px;
+	margin: 5px 0;
+}
+
 .side-menu {
 	color: #666;
 }
@@ -115,7 +145,7 @@ a:active {
 	background: #FFF;
 }
 .side-menu a:active {
-	border-left: solid #78B4D6 7px;
+	border-left: solid #90CDF0 7px;
 	border-bottom: solid #CCC 1px;
 	border-right: solid #CCC 1px;
 	border-top: solid #CCC 1px;
@@ -127,3 +157,12 @@ a:active {
 	padding: 0 0 0 14px;
 	border-bottom: solid #AAA 1px;
 }
+
+.text-icon {
+	font-size: 20px;
+}
+
+.text-error {
+	color: #D00;
+}
+
