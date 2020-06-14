@@ -14,6 +14,7 @@
 	<p>点击空白处刷新</p>
 	<p>主要对象：<input type="text" id="name" value="营销号文章生成器"></p>
 	<p>发生事件：<input type="text" id="event" value="突然出现"></p>
+	<p>发出疑问：<input type="text" id="eq" value="是怎么回事呢"></p>
 	<p>自我称呼：<input type="text" id="user" value="小编"></p>
 	<p>核心内容：<input type="text" id="core" value="其实就是程序员闲着没事干"></p>
 	<p>特别惊讶：<input type="text" id="event2" value="就这么莫名其妙地出现"></p>
@@ -33,12 +34,13 @@
 		function outputText() {
 			var sname = $("#name").val();
 			var sevent = $("#event").val();
+			var eq = $("#eq").val();
 			var user = $("#user").val();
 			var core = $("#core").val();
 			var event2 = $("#event2").val();
 			
 			$("#output").empty();
-			$("#output").append('<p>' + sname + sevent + '是怎么回事呢？' + sname + '相信大家都很熟悉，但是' + sname + sevent + '是怎么回事呢，下面就让' + user + '带大家一起了解吧。<p><p>' + sname + sevent + '，' + core + '，大家可能会很惊讶' + sname + '怎么会' + event2 + '呢？但事实就是这样，' + user + '也感到非常惊讶。</p><p>这就是关于' + sname + sevent + '的事情了，大家有什么想法呢，欢迎在评论中告诉' + user + '一起讨论哦！</p>');
+			$("#output").append('<p>' + sname + sevent + eq + '？' + sname + '相信大家都很熟悉，但是' + sname + sevent + eq + '?下面就让' + user + '带大家一起了解吧。<p><p>' + sname + sevent + '，' + core + '，大家可能会很惊讶' + sname + '怎么会' + event2 + '呢？但事实就是这样，' + user + '也感到非常惊讶。</p><p>这就是关于' + sname + sevent + '的事情了，大家有什么想法呢，欢迎在评论中告诉' + user + '一起讨论哦！</p>');
 		}
 	</script>
 </body>
