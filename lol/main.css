@@ -141,7 +141,7 @@ pbt textarea:hover {
 
 pbt textarea:focus {
     border: #19BAAC 1px solid;
-	border-radius: 0 4px 4px 0;
+	border-radius: 0 0 4px 4px;
 	box-shadow: 0 0 3px #19BAAC;
 	background: #FEFEFE;
 	color: #000;
