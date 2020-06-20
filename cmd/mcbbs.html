@@ -1,0 +1,291 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>SPRCMD:MCBBS</title>
+	<link rel="stylesheet" href="cmd.css">
+</head>
+
+<body>
+	<div class="box">
+		<div class="boxipt">
+			<form action="" method="post" target="nm_iframe">
+				<input type="text" name="sprtxtcmd" id="sprtxtcmd" class="lb-ipt" autocomplete="off" />
+				<input type="submit" value="执行" id="spr-cmd-ok" style="display:none;" />
+			</form>
+		</div>
+		<div id="output">
+			<p>==================================================</p>
+			<p>SPRCMD:MCBBS - 欢迎使用！</p>
+			<p>版本： 20200620A</p>
+			<p>sheep-realms.github.io/cmd</p>
+		</div>
+		<iframe id="id_iframe" name="nm_iframe" style="display:none;"></iframe>
+	</div>
+	
+	<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+	
+	<script>
+		$("#sprtxtcmd").focus();
+		
+		//控制台
+		$("#spr-cmd-ok").click(function(){
+			var cmdtxt = $("#sprtxtcmd").val().split(' ');
+			if ($("#sprtxtcmd").val() == '') {return 0;}
+			logMsg('<YOU> ' + $("#sprtxtcmd").val());
+			$("#sprtxtcmd").val('');
+			$("#spr-md-cmd").css('display', 'none');
+
+			var cmdtext = cmdtxt[1];
+			if (cmdtxt[2] != undefined) {
+				for(var m = 2; m < cmdtxt.length; m++) {
+					cmdtext = cmdtext + ' ' + cmdtxt[m];
+				}
+			}
+
+			switch (cmdtxt[0]) {
+				case '':
+					break;
+				case './':
+					logErr("该命令无法在此环境中使用！");
+					break;
+				case '/.':
+					logErr("该命令无法在此环境中使用！");
+					break;
+				case 'cd':
+					var doBlank;
+
+					if (cmdtxt[1] != undefined) {
+						if (cmdtxt[3] == 'f') {
+							doBlank = '_self';
+						} else {
+							doBlank = '_blank';
+						}
+						switch (cmdtxt[1]) {
+							case '*':
+								window.open('https://www.mcbbs.net/', doBlank);
+								logMsg('已打开 MCBBS首页', 'msg');
+								break;
+							case 'a':
+								if (cmdtxt[2] != undefined) {
+									window.open('https://www.mcbbs.net/portal.php?mod=view&aid=' + cmdtxt[2], doBlank);
+									logMsg('已打开 文章 ' + cmdtxt[2], 'msg');
+								} else {
+									logErr("语法：cd a <文章ID> [是否新窗]");
+								}
+								break;
+							case 'f':
+								if (cmdtxt[2] != undefined) {
+									if (cmdtxt[2] != '*') {
+										window.open('https://www.mcbbs.net/forum-' + cmdtxt[2] + '-1.html', doBlank);
+										logMsg('已打开 版块 ' + cmdtxt[2], 'msg');
+									} else {
+										window.open('https://www.mcbbs.net/forum.php', doBlank);
+										logMsg('已打开 论坛', 'msg');
+									}
+								} else {
+									logErr("语法：cd f <版块ID> [是否新窗]");
+								}
+								break;
+							case 'pg':
+								if (cmdtxt[2] != undefined) {
+									switch (cmdtxt[2]) {
+										case 'blk':
+											window.open('https://www.mcbbs.net/forum.php?mod=misc&action=showdarkroom', doBlank);
+											logMsg('已打开 小黑屋', 'msg');
+											break;
+										case 'sta':
+											window.open('https://www.mcbbs.net/misc.php?mod=stat', doBlank);
+											logMsg('已打开 站点统计', 'msg');
+											break;
+										case 'tag':
+											window.open('https://www.mcbbs.net/misc.php?mod=tag', doBlank);
+											logMsg('已打开 标签总览', 'msg');
+											break;
+										default:
+											logErr("语法：cd p <页面> [是否新窗]");
+									}
+								} else {
+									logErr("语法：cd p <页面> [是否新窗]");
+								}
+								break;
+							case 't':
+								if (cmdtxt[2] != undefined) {
+									if (cmdtxt[2] != '*') {
+										window.open('https://www.mcbbs.net/thread-' + cmdtxt[2] + '-1-1.html', doBlank);
+										logMsg('已打开 主题 ' + cmdtxt[2], 'msg');
+									} else {
+										window.open('https://www.mcbbs.net/forum.php?mod=guide&view=newthread', doBlank);
+										logMsg('已打开 导读-最新主题', 'msg');
+									}
+								} else {
+									logErr("语法：cd t <帖子ID> [是否新窗]");
+								}
+								break;
+							case 'tag':
+								if (cmdtxt[2] != undefined) {
+									if (cmdtxt[2] != '*') {
+										window.open('https://www.mcbbs.net/misc.php?mod=tag&id=' + cmdtxt[2], doBlank);
+										logMsg('已打开 标签 ' + cmdtxt[2], 'msg');
+									} else {
+										window.open('https://www.mcbbs.net/misc.php?mod=tag', doBlank);
+										logMsg('已打开 标签总览', 'msg');
+									}
+								} else {
+									logErr("语法：cd tag <TAG ID> [是否新窗]");
+								}
+								break;
+							case 'tagn':
+								if (cmdtxt[2] != undefined) {
+									if (cmdtxt[2] != '*') {
+										window.open('https://www.mcbbs.net/misc.php?mod=tag&name=' + cmdtxt[2], doBlank);
+										logMsg('已打开 标签 ' + cmdtxt[2], 'msg');
+									} else {
+										window.open('https://www.mcbbs.net/misc.php?mod=tag', doBlank);
+										logMsg('已打开 标签总览', 'msg');
+									}
+								} else {
+									logErr("语法：cd tagn <TAG名称> [是否新窗]");
+								}
+								break;
+							case 'u':
+								if (cmdtxt[2] != undefined) {
+									if (cmdtxt[2] != '~') {
+										window.open('https://www.mcbbs.net/?' + cmdtxt[2], doBlank);
+										logMsg('已打开 用户 ' + cmdtxt[2], 'msg');
+									} else {
+										logErr('此环境无法使用关键字"~"！');
+									}
+								} else {
+									logErr("语法：cd u <UID> [是否新窗]");
+								}
+								break;
+							case 'un':
+								if (cmdtxt[2] != undefined) {
+									window.open('https://www.mcbbs.net/home.php?mod=space&username=' + cmdtxt[2], doBlank);
+									logMsg('已打开 用户 ' + cmdtxt[2], 'msg');
+								} else {
+									logErr("语法：cd un <用户名> [是否新窗]");
+								}
+								break;
+							case 'unm':
+								if (cmdtxt[2] != undefined) {
+									window.open('https://www.mcbbs.net/forum.php?mod=modcp&action=thread&op=post&do=search&searchsubmit=1&users=' + cmdtxt[2], doBlank);
+									logMsg('已打开 管理面板-帖子管理 ' + cmdtxt[2], 'msg');
+								} else {
+									logErr("语法：cd unm <用户名> [是否新窗]");
+								}
+								break;
+							case 'uns':
+								if (cmdtxt[2] != undefined) {
+									window.open('https://www.mcbbs.net/home.php?mod=spacecp&ac=search&username=' + cmdtxt[2] + '&searchsubmit=yes', doBlank);
+									logMsg('已打开 用户搜索 ' + cmdtxt[2], 'msg');
+								} else {
+									logErr("语法：cd uns <用户名> [是否新窗]");
+								}
+								break;
+							case 'us':
+								if (cmdtxt[2] != undefined) {
+									if (cmdtxt[2] != '~') {
+										window.open('https://www.mcbbs.net/home.php?mod=space&uid=' + cmdtxt[2] + '&do=index&view=admin', doBlank);
+										logMsg('已打开 用户空间 ' + cmdtxt[2], 'msg');
+									} else {
+										logErr('此环境无法使用关键字"~"！');
+									}
+								} else {
+									logErr("语法：cd us <UID> [是否新窗]");
+								}
+								break;
+							case 'usr':
+								if (cmdtxt[2] != undefined) {
+									window.open('https://www.mcbbs.net/home.php?mod=space&uid=' + cmdtxt[2] + '&do=index&view=admin&additional=removevlog', doBlank);
+									logMsg('已打开 用户空间 ' + cmdtxt[2] + ' 并清除访问记录', 'msg');
+								} else {
+									logErr("语法：cd usr <UID> [是否新窗]");
+								}
+								break;
+							default:
+								logErr("语法：cd <类别> ...");
+						}
+					} else {
+						logErr("语法：cd <类别> ...");
+					}
+
+					break;
+				case 'cls':
+					try {$('#output').empty();} catch(err) {}
+					break;
+				case 'date':
+					logMsg(Date(), 'msg');
+					break;
+				case 'err':
+					if (cmdtxt[1] != undefined) {
+						logErr(cmdtext);
+					} else {
+						logErr("语法：err <消息...>");
+					}
+					break;
+				case 'msg':
+					if (cmdtxt[1] != undefined) {
+						logMsg(cmdtext, 'msg');
+					} else {
+						logErr("语法：msg <消息...>");
+					}
+					break;
+				case 'open':
+					var win = window.open(cmdtxt[1],'_blank');
+					if (win) {
+						win.focus();
+					} else {}
+					logMsg('已打开 网页 ' + cmdtxt[1], 'msg');
+					break;
+				case 'ps':
+					logErr("该命令无法在此环境中使用！");
+					break;
+				case 'rit':
+					if (cmdtxt[1] != undefined) {
+						logMsg(cmdtext, 'rit', 'auto');
+					} else {
+						logErr("语法：rit <消息...>");
+					}
+					break;
+				default:
+					logErr("未知的命令：'" + cmdtxt[0] + "'");
+			}
+		});	
+		
+		
+		function logErr (text) {
+			logMsg('[ERROR] ' + text, 'err', 'auto');
+		}
+
+		function logRit (text) {
+			logMsg( text, 'rit', 'auto');
+		}
+
+		function logMsg (text, type) {
+			var objMsgList = $('#output');
+
+			var classtype;
+
+			switch (type) {
+				case 'msg':
+					classtype = '';
+					break;
+				case 'err':
+					classtype = 'txt-red';
+					break;
+				case 'rit':
+					classtype = 'txt-green';
+					break;
+			}
+
+			var objLbMsg = $('<p class="' + classtype + '"></p>');
+
+			objMsgList.prepend(objLbMsg);
+			objLbMsg.text(text);
+		}
+	</script>
+	
+</body>
+</html>
