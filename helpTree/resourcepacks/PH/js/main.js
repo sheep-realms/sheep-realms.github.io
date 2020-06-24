@@ -45,6 +45,11 @@ $(function () {
 			text : "历史更改",
 			state : "closed",
 			children : [{
+				text : "v3.3.5",
+				attributes : {
+					url : "page/updata/3.3.5.html"
+				}
+			}, {
 				text : "v3.3.4",
 				attributes : {
 					url : "page/updata/3.3.4.html"
