@@ -1,531 +1,124 @@
-* {
-	margin: 0;
-	padding: 0;
-	font-family: "microsoft yahei";
-	font-size: 15px;
-}
-
-body {
-	background: #FAFAFA;
-}
-
-a {
-	color: #1c92e4;
-	text-decoration: none;
-}
-
-a:hover {
-	color: #38B0F5;
-	text-decoration: none;
-}
-
-#header {
-	min-height: 200px;
-	background: #1c92e4;
-	border-bottom: #DDD 3px solid;
-}
-
-#header-logo {
-	font-size: 75px;
-	color: #FAFAFA;
-	padding: 50px 0;
-}
-
-#header-logo img {
-	height: 75px;
-	width: auto;
-}
-
-#header-side {
-	float: right;
-	position: relative;
-	bottom: 35px;
-}
-
-.seach {
-	color: #FAFAFA;
-	width: auto;
-	border-bottom: #FAFAFA 2px solid;
-	display: block!important;
-	
-	transition: all .3s;
-	-moz-transition: all .3s;	/* Firefox 4 */
-	-webkit-transition: all .3s;	/* Safari 和 Chrome */
-	-o-transition: all .3s;	/* Opera */
-}
-
-#header-side input[type="text"] {
-	height: 25px;
-	width: 150px;
-	background: transparent;
-	border: none;
-	color: #FAFAFA;
-	outline: none;
-	padding: 0 5px;
-	
-	transition: all .3s;
-	-moz-transition: all .3s;	/* Firefox 4 */
-	-webkit-transition: all .3s;	/* Safari 和 Chrome */
-	-o-transition: all .3s;	/* Opera */
-}
-
-#header-side input[type="text"]::-webkit-input-placeholder{
-	color:#EEE;
-}
-
-#header-side input[type="text"]:hover {
-	width: 170px;
-}
-
-#header-side input[type="text"]:focus {
-	width: 250px;
-}
-
-#header-side input[type="submit"] {
-	height: 25px;
-	width: 30px;
-	background: transparent url(../img/seach.png) no-repeat;
-	background-size: cover;
-	-webkit-background-size: cover;
-	-o-background-size: cover;
-	background-position: center 0;
-	border: none;
-	color: #FAFAFA;
-	outline: none;
-	
-	transition: all .3s;
-	-moz-transition: all .3s;	/* Firefox 4 */
-	-webkit-transition: all .3s;	/* Safari 和 Chrome */
-	-o-transition: all .3s;	/* Opera */
-}
-
-.page {
-	margin: 0 auto;
-	width: 1000px;
-}
-
-#content {
-	min-height: 500px;
-}
-
-.menu {
-	margin-top: -3px;
-	padding: 0 10px;
-}
-
-.menu li {
-	display: inline-block;
-	list-style-type: none;
-	/*padding: 20px 30px;*/
-	border-top: #DDD 3px solid;
-	border-bottom: #FAFAFA 3px solid;
-}
-
-.menu li a {
-	display: block;
-	min-width: 90px;
-	line-height: 60px;
-	text-align: center;
-	font-weight: bold;
-	font-size: 17px;
-}
-
-.menu li:hover {
-	background: #EEE;
-	border-top: #CCC 3px solid;
-	border-bottom: #EEE 3px solid;
-}
-
-.menu li.sel {
-	background-image: linear-gradient(#9ed2f6, transparent);
-	border-top: #5ab2ef 3px solid;
-	border-bottom: #FAFAFA 3px solid;
-}
-
-.menu li.sel:hover {
-	background-color: transparent;
-	background-image: linear-gradient(#9ed2f6, transparent);
-}
-
-.userbar {
-	clear: both;
-	float: right;
-	display: block;
-	min-width: 200px!important;
-	position: relative;
-	bottom: 10px;
-	margin: -5px 0 -10px 0;
-}
-
-.userbar p {
-	text-align: right;
-	margin: 15px 5px;
-}
-
-.userhead {
-	height: 50px;
-	width: 50px;
-	border-radius: 25px;
-	float: right;
-	margin-left: 10px;
-}
-
-#mainpage-body {
-	display: grid;
-	width: 100%;
-	grid-template-areas: "a a"
-						 "b c";
-	grid-template-columns: 3fr 1fr;
-}
-
-.mainpage-box-top {grid-area:a;}
-.mainpage-box-left {grid-area:b;}
-.mainpage-box-righy {grid-area:c;}
-
-.topimg {
-	margin: 10px auto;
-	text-align: center;
-}
-
-.box {
-	margin: 10px;
-	min-height: 150px;
-}
-
-.box-title {
-	border-bottom: #1C92E4 2px solid;
-}
-
-.box-content {
-	padding: 10px;
-}
-
-.box-title h3 {
-	line-height: 30px;
-	font-weight: bold;
-	padding: 0 10px;
-	font-size: 17px;
-}
-
-.box-list {
-	clear: both;
-	border-bottom: #CCC 1px solid;
-	padding: 10px;
-	min-height: 90px;
-}
-
-.box-list h4 {
-	color: #222;
-}
-
-.box-list:hover {
-	background: #F4F4F4;
-}
-
-.box-list p {
-	color: #888;
-}
-
-.box-list-img {
-	float: left;
-	height: 80px;
-	width: 120px;
-	margin: 3px 10px 3px 3px; 
-	border-radius: 5px;
-}
-
-#footer {
-	background: #CCC;
-	min-height: 200px;
-	text-align: right;
-}
-
-.footer-info {
-	color: #666;
-	padding: 80px 0;
-}
-
-.footer-info a {
-	color: #666;
-}
-
-.footer-info a:hover {
-	color: #1c92e4;
-}
-
-
-.centermsg {
-	min-height: 30px;
-	width: 500px;
-	border: #DDD 5px solid;
-	margin: 100px auto;
-	padding: 50px;
-}
-
-.logon {
-	width: 400px;
-	margin: 10px auto;
-}
-
-.logon li {
-	display: block;
-	list-style-type: none;
-	min-height: 50px;
-}
-
-.logon input {
-	height: 35px;
-	width: 98%;
-	background: transparent;
-	border: none;
-	border-bottom: #DDD 2px solid;
-	outline: none;
-	margin-bottom: 10px;
-	padding: 0 10px;
-	
-	transition: all .3s;
-	-moz-transition: all .3s;	/* Firefox 4 */
-	-webkit-transition: all .3s;	/* Safari 和 Chrome */
-	-o-transition: all .3s;	/* Opera */
-}
-
-.logon input:hover {
-	border-bottom: #98C1DE 2px solid;
-}
-
-.logon input:focus {
-	border-bottom: #40B1FF 2px solid;
-}
-
-.logon input[type="submit"] {
-	height: 45px;
-	width: 300px;
-	display: block;
-	margin: 20px auto 0 auto;
-	font-weight: bold;
-}
-
-.logon input[type="submit"]:hover {
-	background-color: #9ed2f6;
-	border-bottom: #40B1FF 2px solid;
-}
-
-.login-small {
-	width: 100%;
-	text-align: center;
-}
-
-.login-small input {
-	width: 180px;
-}
-
-.login-small input[type="submit"] {
-	width: 100%;
-	margin-top: 5px;
-}
-
-
-.forum-list {
-	display: grid;
-	width: 100%;
-	grid-template-areas: "f g g h";
-	grid-template-columns: 1fr 1fr 1fr 1fr;
-	margin: 10px 0 0 0;
-	padding: 0 0 10px 0;
-	border-bottom: #CCC 1px solid;
-}
-
-.forum-list-icon {
-	grid-area:f;
-	text-align: center;
-}
-
-.forum-list-icon img {
-	height: 80px;
-	width: 120px;
-	border-radius: 5px;
-	vertical-align: middle;
-}
-
-.forum-list-info {
-	grid-area:g;
-	display: flex;
-}
-
-.forum-list-info div {
-	align-self: center;
-}
-
-.forum-list-post {
-	grid-area:h;
-	display: flex;
-}
-
-.forum-list-post div {
-	align-self: center;
-}
-
-tag {
-	float: left;
-	margin: 5px;
-	padding: 0 5px;
-	line-height: 25px;
-	display: block;
-	background: #DDD;
-	border-radius: 5px;
-}
-
-.product-bigbox {
-	display: grid;
-	width: 100%;
-	grid-template-areas: "ia ib ic ic id"
-						 "ie if if ig ih"
-						 "ii ij ik ik il";
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-}
-
-.product-bigbox :nth-child(1) {grid-area: ia; background-image: url(../img/pro_bigbox/ia.png);}
-.product-bigbox :nth-child(2) {grid-area: ib; background-image: url(../img/pro_bigbox/ib.png);}
-.product-bigbox :nth-child(3) {grid-area: ic; background-image: url(../img/pro_bigbox/ic.png);}
-.product-bigbox :nth-child(4) {grid-area: id; background-image: url(../img/pro_bigbox/id.png);}
-.product-bigbox :nth-child(5) {grid-area: ie; background-image: url(../img/pro_bigbox/ie.png);}
-.product-bigbox :nth-child(6) {grid-area: if; background-image: url(../img/pro_bigbox/if.png);}
-.product-bigbox :nth-child(7) {grid-area: ig; background-image: url(../img/pro_bigbox/ig.png);}
-.product-bigbox :nth-child(8) {grid-area: ih; background-image: url(../img/pro_bigbox/ih.png);}
-.product-bigbox :nth-child(9) {grid-area: ii; background-image: url(../img/pro_bigbox/ii.png);}
-.product-bigbox :nth-child(10) {grid-area: ij; background-image: url(../img/pro_bigbox/ij.png);}
-.product-bigbox :nth-child(11) {grid-area: ik; background-image: url(../img/pro_bigbox/ik.png);}
-.product-bigbox :nth-child(12) {grid-area: il; background-image: url(../img/pro_bigbox/il.png);}
-
-.product-bigbox div {
-	margin: 5px;
-	background: #DDD;
-	height: 150px;
-	background-repeat: no-repeat;
-	background-position: center; 
-	background-size: auto 150px;
-	
-	opacity:0.8;
-	filter:alpha(opacity=80); /*  IE8 及其更早版本 */
-	
-	transition: all .3s;
-	-moz-transition: all .3s;	/* Firefox 4 */
-	-webkit-transition: all .3s;	/* Safari 和 Chrome */
-	-o-transition: all .3s;	/* Opera */
-}
-
-.product-bigbox div:hover {
-	background-size: auto 160px;
-	opacity:1;
-	filter:alpha(opacity=100); /*  IE8 及其更早版本 */
-}
-
-
-.forum-topbar input[type="button"] {
-	height: 45px;
-	width: 100px;
-	background: transparent;
-	border: none;
-	border-bottom: #DDD 2px solid;
-	outline: none;
-	display: block;
-	font-weight: bold;
-	
-	transition: all .3s;
-	-moz-transition: all .3s;	/* Firefox 4 */
-	-webkit-transition: all .3s;	/* Safari 和 Chrome */
-	-o-transition: all .3s;	/* Opera */
-}
-
-.forum-topbar input[type="button"]:hover {
-	background-color: #9ed2f6;
-	border-bottom: #40B1FF 2px solid;
-}
-
-.pagemun {
-	float: right;
-}
-
-.pagemun pg, .forum-type type {
-	display: inline-block;
-	line-height: 35px;
-	margin: 10px 3px;
-	padding: 0 10px;
-	background: transparent;
-	border-bottom: #DDD 2px solid;
-	
-	transition: all .3s;
-	-moz-transition: all .3s;	/* Firefox 4 */
-	-webkit-transition: all .3s;	/* Safari 和 Chrome */
-	-o-transition: all .3s;	/* Opera */
-}
-
-.pagemun pg:hover, .forum-type type:hover {
-	background-color: #9ed2f6;
-	border-bottom: #40B1FF 2px solid;
-}
-
-.forum-topbar {
-	clear: both;
-}
-
-.pagemun pg.sel, .forum-type type.sel {
-	border-bottom: #40B1FF 2px solid;
-	font-weight: bold;
-}
-
-.thread-list {
-	display: grid;
-	min-height: 45px;
-	color: #444;
-	width: 100%;
-	grid-template-areas: "ico title at post time";
-	grid-template-columns: 45px auto 120px 90px 120px;
-	border-bottom: #CCC 1px solid;
-}
-
-.thread-lists .thread-list:hover {
-	background: #F4F4F4;
-}
-
-.thread-ico {grid-area: ico;}
-.thread-title {grid-area: title;}
-.thread-at {grid-area: at;}
-.thread-post {grid-area: post;}
-.thread-time {grid-area: time;}
-
-.thread-list>div {
-	display: flex;
-    align-self: center;
-}
-
-.thread-list ep{
-	display: block;
-	font-size: 14px;
-	line-height: 14px;
-}
-
-.thread-list er{
-	display: block;
-	font-size: 10px;
-	line-height: 12px;
-	color: #AAA;
-}
-
-.thread-list-bar {
-	padding: 5px 20px;
-	border-bottom: #CCC 1px solid;
-	color: #444;
-}
-
-tp {
-	color: #1c92e4;
-	margin-right: 5px;
-}
-
-tpg {
-	color: #666;
-	font-size: 12px;
-	line-height: 20px;
-	margin-left: 10px;
-}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>邦立重机</title>
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+	</head>
+	<body>
+		<div id="header">
+			<div class="page">
+				<div id="header-logo">
+					<img src="img/logo.png" alt="邦立重机">
+				</div>
+				<div id="header-side">
+					<div class="seach" style="display: none;">
+						<form action="seach.html" method="get">
+							<input type="text" placeholder="搜索...">
+							<input type="submit" id="seach" name="seach" value=" " />
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="page">
+			<div class="nav">
+				<div class="userbar">
+					<img src="img/head.png" alt="" class="userhead">
+					<p>
+						<a href="login.html">登录</a> | 
+						<a href="logon.html">注册</a>
+					</p>
+				</div>
+				<ul class="menu">
+					<li class="sel"><a href="index.html">首页</a></li>
+					<li><a href="news.html">新闻</a></li>
+					<li><a href="bbs.html">交流</a></li>
+					<li><a href="product.html">产品</a></li>
+					<li><a href="resources.html">资源</a></li>
+					<li><a href="about.html">关于</a></li>
+				</ul>
+			</div>
+			<div id="content">
+				<div id="mainpage-body">
+					<div class="mainpage-box-top">
+						<div class="topimg">
+							<img src="img/img1.png" alt="">
+						</div>
+					</div>
+					<div class="mainpage-box-left">
+						<div class="box">
+							<div class="box-title">
+								<h3>新闻动态</h3>
+							</div>
+							<div class="box-content">
+								<a href="#">
+									<div class="box-list">
+										<img src="img/leftimg.png" alt="" class="box-list-img">
+										<h4>文章标题</h4>
+										<p>正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文</p>
+									</div>
+								</a>
+								<a href="#">
+									<div class="box-list">
+										<img src="img/leftimg.png" alt="" class="box-list-img">
+										<h4>文章标题</h4>
+										<p>正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文</p>
+									</div>
+								</a>
+								<a href="#">
+									<div class="box-list">
+										<img src="img/leftimg.png" alt="" class="box-list-img">
+										<h4>文章标题</h4>
+										<p>正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文</p>
+									</div>
+								</a>
+								<a href="#">
+									<div class="box-list">
+										<img src="img/leftimg.png" alt="" class="box-list-img">
+										<h4>文章标题</h4>
+										<p>正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文</p>
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="mainpage-box-right">
+						<div class="box">
+							<div class="box-title">
+								<h3>用户登录</h3>
+							</div>
+							<div class="box-content">
+								<form action="msg/loginok.html" class="logon login-small">
+									<ul>
+										<li>
+											<input type="text" id="username" name="username" placeholder="用户名/邮箱...">
+										</li>
+										<li>
+											<input type="password" id="key" name="key" placeholder="密码...">
+										</li>
+										<li>
+											<input type="submit" value="登 录">
+										</li>
+									</ul>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="footer">
+			<div class="page">
+				<div class="footer-info">
+					<p>©计算机1902-刘洋-099</p>
+					<p>
+						<a href="index.html">首页</a> | 
+						<a href="#top">回顶部</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
