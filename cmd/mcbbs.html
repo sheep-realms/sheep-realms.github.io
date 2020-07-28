@@ -17,7 +17,7 @@
 		<div id="output">
 			<p>==================================================</p>
 			<p>SPRCMD:MCBBS - 欢迎使用！</p>
-			<p>版本： 20200620A</p>
+			<p>版本： 20200728A</p>
 			<p>sheep-realms.github.io/cmd</p>
 		</div>
 		<iframe id="id_iframe" name="nm_iframe" style="display:none;"></iframe>
@@ -87,6 +87,14 @@
 									logErr("语法：cd f <版块ID> [是否新窗]");
 								}
 								break;
+							case 'p':
+								if (cmdtxt[2] != undefined) {
+									window.open('https://www.mcbbs.net/forum.php?mod=redirect&goto=findpost&ptid=0&pid=' + cmdtxt[2], doBlank);
+									logMsg('已打开 帖子 ' + cmdtxt[2], 'msg');
+								} else {
+									logErr("语法：cd p <PID> [是否新窗]");
+								}
+								break;
 							case 'pg':
 								if (cmdtxt[2] != undefined) {
 									switch (cmdtxt[2]) {
@@ -103,10 +111,10 @@
 											logMsg('已打开 标签总览', 'msg');
 											break;
 										default:
-											logErr("语法：cd p <页面> [是否新窗]");
+											logErr("语法：cd pg <页面> [是否新窗]");
 									}
 								} else {
-									logErr("语法：cd p <页面> [是否新窗]");
+									logErr("语法：cd pg <页面> [是否新窗]");
 								}
 								break;
 							case 't':
