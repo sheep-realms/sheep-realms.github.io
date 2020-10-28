@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Microsoft YaHei", Arial, sans-serif, "PingFang SC";
+}
+
+body {
+    background-color: #F4F4F4;
+}
+
+h1 {
+    display: inline-block;
+    font-size: 30px;
+    line-height: 20px;
+    padding: 5px 20px 5px 0;
+    border-right: 1px #AAA solid;
+    margin-right: 16px;
+    color: #444;
+}
+
+h2 {
+    display: inline-block;
+    font-size: 25px;
+    padding: 12px 0;
+    color: #666;
+}
+
+#topbar {
+    height: 60px;
+    background-color: #FFF;
+    border-bottom: 3px #2f8bf5 solid;
+    margin-bottom: 25px;
+}
+
+.flex2fr {
+    display: flex;
+}
+
+.flex2fr .left, .flex2fr .right{
+    flex: 1;
+}
