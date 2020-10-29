@@ -3,7 +3,7 @@
 
 function start() {
     $('#output').val(translate($('#input').val(), $('#exp').val(), $('#ext').val()));
-    
+    $('#output').addClass("change");
 }
 
 function translate(text, from_lang, to_lang) {

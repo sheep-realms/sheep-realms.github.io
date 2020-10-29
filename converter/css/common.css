@@ -27,6 +27,7 @@ h2 {
 
 #topbar {
     height: 60px;
+    width: 100%;
     background-color: #FFF;
     border-bottom: 3px #2f8bf5 solid;
     margin-bottom: 25px;
@@ -38,4 +39,31 @@ h2 {
 
 .flex2fr .left, .flex2fr .right{
     flex: 1;
+}
+
+@media screen and (max-width: 600px) {
+    #topbar {
+        margin-bottom: 5px;
+    }
+
+    #topbar .page {
+        display: flex;
+    }
+
+    h1 {
+        flex: 1;
+        font-size: 18px;
+        padding: 20px 5px 18px 20px;
+        border: none;
+    }
+
+    h2 {
+        flex: 1;
+        display: inline-block;
+        font-size: 25px;
+        padding: 12px 0;
+        color: #666;
+        padding-right: 20px;
+        text-align: right;
+    }
 }
