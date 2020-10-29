@@ -78,7 +78,7 @@ input[type="button"]:active {
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
     .flex2fr {
         flex-flow: column;
     }
@@ -145,17 +145,32 @@ input[type="button"]:active {
         box-shadow: none;
     }
 
+    .textbox#input {
+        min-height: 150px;
+        transition: min-height .2s;
+    }
+
+    .textbox#input:focus {
+        min-height: 300px;
+    }
+
     .textbox#output {
         background-color: transparent;
         margin-top: 5px;
         height: 300px;
         max-height: 0px;
-        transition: background-color .2s, max-height .2s;
+        color: transparent;
+        transition: color .2s, background-color .2s, max-height .2s;
     }
 
     .textbox#output.change {
-        max-height: 300px;
+        max-height: 150px;
+        color: #000;
         background-color: #FAFAFA;
+    }
+
+    .textbox#output.change:focus {
+        max-height: 300px;
     }
 
     #content {
