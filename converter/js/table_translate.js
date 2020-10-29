@@ -41,6 +41,9 @@ function translate(text, from_lang, to_lang) {
         case "lang":
             text2 = extLang(table);
             break;
+        case "md":
+            text2 = extMarkdown(table);
+            break;
         case "mw":
             text2 = extMediaWiki(table);
             break;
@@ -220,6 +223,20 @@ function extLang(table) {     //展开语言配置文件
 
     for(var i = 0; i<table.tr.length; i++) {
         text += table.tr[i].td[0].text + "=" + table.tr[i].td[1].text + "\n";
+    }
+
+    return text;
+}
+
+function extMarkdown(table) {
+    var text = "";
+
+    //内容
+    for(var i = 0; i<table.tr.length; i++) {
+        for(var j = 0; j<table.tr[i].td.length; j++) {
+                text += "| " + table.tr[i].td[j].text + " ";
+        }
+        text += "|\n";
     }
 
     return text;
