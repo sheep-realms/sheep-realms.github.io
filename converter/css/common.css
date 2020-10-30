@@ -31,6 +31,47 @@ h2 {
     background-color: #FFF;
     border-bottom: 3px #2f8bf5 solid;
     margin-bottom: 25px;
+    z-index: 1000;
+    position: relative;
+}
+
+#infobox {
+    background: #DDD;
+    color: #666;
+    margin-top: -25px;
+    margin-bottom: 25px;
+    padding: 0px 10px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .15s, padding .3s;
+}
+
+#infobox.show {
+    padding: 7px 10px;
+    max-height: 100px;
+}
+
+#infobox .page {
+    display: flex;
+}
+
+#infobox #infobox-content{
+    flex: 100%;
+}
+
+#infobox #infobox-close {
+    flex: 70px;
+    text-align: center;
+    display: inline-block;
+    line-height: 37px;
+    margin-top: -7px;
+    margin-bottom: -5px;
+    cursor: pointer;
+}
+
+#infobox.err {
+    background: #FF8080;
+    color: #FFF;
 }
 
 .flex2fr {
@@ -65,5 +106,10 @@ h2 {
         color: #666;
         padding-right: 20px;
         text-align: right;
+    }
+
+    #infobox {
+        margin-top: -5px;
+        margin-bottom: 5px;
     }
 }

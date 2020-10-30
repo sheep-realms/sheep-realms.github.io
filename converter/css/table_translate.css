@@ -157,20 +157,20 @@ input[type="button"]:active {
     .textbox#output {
         background-color: transparent;
         margin-top: 5px;
-        height: 300px;
-        max-height: 0px;
+        min-height: 0;
+        height: 0px;
         color: transparent;
-        transition: color .2s, background-color .2s, max-height .2s;
+        transition: color .2s, background-color .2s, height .2s;
     }
 
     .textbox#output.change {
-        max-height: 150px;
+        height: 150px;
         color: #000;
         background-color: #FAFAFA;
     }
 
     .textbox#output.change:focus {
-        max-height: 300px;
+        height: 300px;
     }
 
     #content {

@@ -1,55 +1,83 @@
-
-
+$('#infobox-close').click(function() {
+    $('#infobox').removeClass("show");
+})
 
 function start() {
     $('#output').val(translate($('#input').val(), $('#exp').val(), $('#ext').val()));
     $('#output').addClass("change");
     $('#output').focus();
+    $('#output').select();
+}
+
+function out(text, type) {
+    $('#infobox #infobox-content').text(text);
+    $('#infobox').removeClass("err");
+    $('#infobox').removeClass("msg");
+    $('#infobox').addClass(type);
+    $('#infobox').addClass("show");
+}
+
+function outMsg(text) {
+    out(text,"msg")
+}
+
+function outErr(text) {
+    out("错误："+text,"err")
 }
 
 function translate(text, from_lang, to_lang) {
     var text2 = "";
     var table;
 
-    switch(from_lang) {
-        case "csv":
-            table = expCsv(text);
-            break;
-        case "json":
-            table = eval('(' + text + ')');
-            break;
-        case "lang":
-            table = expLang(text);
-            break;
-        default:
-            table = expCsv(text);
+    try {
+        switch(from_lang) {
+            case "csv":
+                table = expCsv(text);
+                break;
+            case "json":
+                table = eval('(' + text + ')');
+                break;
+            case "lang":
+                table = expLang(text);
+                break;
+            default:
+                table = expCsv(text);
+        }
+    } catch (error) {
+        outErr("解析表格时出错！请检查您的输入！")
+        return "出错";
     }
+    
 
-    switch(to_lang) {
-        case "csv":
-            text2 = extCsv(table);
-            break;
-        case "csv":
-            text2 = extBBCode(table);
-            break;
-        case "html":
-            text2 = extHTML(table);
-            break;
-        case "json":
-            text2 = JSON.stringify(table);
-            break;
-        case "lang":
-            text2 = extLang(table);
-            break;
-        case "md":
-            text2 = extMarkdown(table);
-            break;
-        case "mw":
-            text2 = extMediaWiki(table);
-            break;
-        default:
-            text2 = extBBCode(table);
-}
+    try {
+        switch(to_lang) {
+            case "csv":
+                text2 = extCsv(table);
+                break;
+            case "csv":
+                text2 = extBBCode(table);
+                break;
+            case "html":
+                text2 = extHTML(table);
+                break;
+            case "json":
+                text2 = JSON.stringify(table);
+                break;
+            case "lang":
+                text2 = extLang(table);
+                break;
+            case "md":
+                text2 = extMarkdown(table);
+                break;
+            case "mw":
+                text2 = extMediaWiki(table);
+                break;
+            default:
+                text2 = extBBCode(table);
+        }
+    } catch (error) {
+        outErr("导出表格时出错！")
+    }
 
     return text2;
 }
