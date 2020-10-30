@@ -57,6 +57,7 @@ h2 {
 
 #infobox #infobox-content{
     flex: 100%;
+    word-break: break-word;
 }
 
 #infobox #infobox-close {
