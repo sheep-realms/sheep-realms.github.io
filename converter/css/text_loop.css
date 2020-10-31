@@ -1,0 +1,45 @@
+input.for[type="text"] {
+    width: 100px;
+    margin-right: 5px;
+}
+
+.textbox#before, .textbox#after {
+    height: 120px;
+    min-height: 120px;
+}
+
+.textbox#output {
+    height: 500px;
+    min-height: 500px;
+}
+
+.bottombox {
+    width: 90%;
+    text-align: right;
+    min-height: 100px;
+    padding: 0 10px;
+}
+
+.bottominfo {
+    float: left;
+    width: calc(98% - 120px);
+    text-align: left;
+}
+
+@media screen and (max-width: 800px) {
+    input.for[type="text"] {
+        width: calc(33% - 45px);
+        text-align: center;
+    }
+
+    .bottombox {
+        width: 100%;
+        text-align: center;
+        padding: 0;
+    }
+
+    .bottominfo {
+        float: none;
+        width: 90%;
+    }
+}

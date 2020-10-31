@@ -1,28 +1,8 @@
-$('#infobox-close').click(function() {
-    $('#infobox').removeClass("show");
-})
-
 function start() {
     $('#output').val(translate($('#input').val(), $('#exp').val(), $('#ext').val()));
     $('#output').addClass("change");
     $('#output').focus();
     $('#output').select();
-}
-
-function out(text, type) {
-    $('#infobox #infobox-content').text(text);
-    $('#infobox').removeClass("err");
-    $('#infobox').removeClass("msg");
-    $('#infobox').addClass(type);
-    $('#infobox').addClass("show");
-}
-
-function outMsg(text) {
-    out(text,"msg")
-}
-
-function outErr(text) {
-    out("错误："+text,"err")
 }
 
 function translate(text, from_lang, to_lang) {
@@ -44,8 +24,18 @@ function translate(text, from_lang, to_lang) {
                 table = expCsv(text);
         }
     } catch (error) {
-        outErr("解析表格时出错！请检查您的输入！")
-        return "出错";
+        if (from_lang == "json") {
+            if (text.indexOf("console.log") != -1) {
+                outErr("住手！！！这里不是控制台！！！");
+                return "出错";
+            } else {
+                outErr("解析表格时出错！请检查您输入的JSON数据！");
+                return "出错";
+            }
+        } else {
+            outErr("解析表格时出错！请检查您的输入！")
+            return "出错";
+        }
     }
     
 
@@ -76,7 +66,18 @@ function translate(text, from_lang, to_lang) {
                 text2 = extBBCode(table);
         }
     } catch (error) {
-        outErr("导出表格时出错！")
+        if (from_lang == "json") {
+            if (text.indexOf("console.log") != -1) {
+                outErr("住手！！！这里不是控制台！！！");
+                return "出错";
+            } else {
+                outErr("导出表格时出错！请检查您输入的JSON数据！");
+                return "出错";
+            }
+        } else {
+            outErr("导出表格时出错！");
+            return "出错";
+        }
     }
 
     return text2;
@@ -125,11 +126,11 @@ function expBBCode(text) {     //解释BBCode(Discuz!X)
     var search_start = text.toLowerCase().indexOf("[table");
 
     //检测头部
-    if(search != -1) {
+    if (search != -1) {
 
         //头部
-        if(text.indexOf("=") < search_end) {
-            if(text.indexOf(",") < search_end) {
+        if (text.indexOf("=") < search_end) {
+            if (text.indexOf(",") < search_end) {
                 table = {
                     "width": text.substring(search_start + 6, text.indexOf(",",search_start)),
                     "color": text.substring(text.indexOf(",",search_start) + 1, text.indexOf("]",search_start) - 1),
@@ -146,7 +147,7 @@ function expBBCode(text) {     //解释BBCode(Discuz!X)
         }
         search_start = text.indexOf("]",search_start) + 1;
         
-        if(text.indexOf("[/table]",search_start) != -1) {
+        if (text.indexOf("[/table]",search_start) != -1) {
             search_stop = text.toLowerCase().indexOf("[/table]",search_start);
         } else {
             search_stop = text.length;
@@ -157,7 +158,7 @@ function expBBCode(text) {     //解释BBCode(Discuz!X)
             //行
             search_end = text.toLowerCase().indexOf("[/tr]",search_start)
             search = text.toLowerCase().indexOf("[tr",search_start);
-            if(search < search_end && search != -1) {
+            if (search < search_end && search != -1) {
                 search_start = text.toLowerCase().indexOf("[tr",search_start);
             }
 
@@ -178,7 +179,7 @@ function extBBCode(table) {     //展开BBCode(Discuz!X)
 
     //预制方法
     function getWidth(width) {      //格式化宽度数据
-        if(width.substring(width.length-1) == "%") {
+        if (width.substring(width.length-1) == "%") {
         } else {
             width = parseInt(width);
         }
@@ -187,7 +188,7 @@ function extBBCode(table) {     //展开BBCode(Discuz!X)
 
     //头部
     text += "[table";
-    if(table.width != undefined) {text += "=" + getWidth(table.width);}
+    if (table.width != undefined) {text += "=" + getWidth(table.width);}
     text += "]\n";
 
     //内容
@@ -195,7 +196,7 @@ function extBBCode(table) {     //展开BBCode(Discuz!X)
         text += "[tr]";
         for(var j = 0; j<table.tr[i].td.length; j++) {
             text += "[td";
-            if(table.tr[i].td[j].width != undefined) {text += "=" + getWidth(table.tr[i].td[j].width);}
+            if (table.tr[i].td[j].width != undefined) {text += "=" + getWidth(table.tr[i].td[j].width);}
             text += "]" + table.tr[i].td[j].text + "[/td]";
         }
         text += "[/tr]\n";
@@ -211,7 +212,7 @@ function extHTML(table) {     //展开HTML
 
     //头部
     text += "<table";
-    if(table.width != undefined) {text += " style=\"width:" + table.width + "\"";}
+    if (table.width != undefined) {text += " style=\"width:" + table.width + "\"";}
     text += ">\n";
 
     //内容
@@ -219,7 +220,7 @@ function extHTML(table) {     //展开HTML
         text += "\t<tr>\n";
         for(var j = 0; j<table.tr[i].td.length; j++) {
             text += "\t\t<td";
-            if(table.tr[i].td[j].width != undefined) {text += " style=\"width:" + table.width + "\"";}
+            if (table.tr[i].td[j].width != undefined) {text += " style=\"width:" + table.width + "\"";}
             text += ">" + table.tr[i].td[j].text + "</td>\n";
         }
         text += "\t</tr>\n";
@@ -275,7 +276,7 @@ function extMediaWiki(table) {     //展开MediaWiki
 
     //头部
     text += "{|";
-    if(table.width != undefined) {text += " style=\"width:" + table.width + "\"";}
+    if (table.width != undefined) {text += " style=\"width:" + table.width + "\"";}
     text += "\n";
 
     //内容
@@ -283,7 +284,7 @@ function extMediaWiki(table) {     //展开MediaWiki
             text += "|-\n";
         for(var j = 0; j<table.tr[i].td.length; j++) {
                 text += "|";
-            if(table.tr[i].td[j].width != undefined) {
+            if (table.tr[i].td[j].width != undefined) {
                 text += " style=\"width:" + table.tr[i].td[j].width + "\" | ";
             } else {
                 if (j == 0) {

@@ -8,6 +8,11 @@ body {
     background-color: #F4F4F4;
 }
 
+.page {
+    width: 1200px;
+    margin: 0 auto;
+}
+
 h1 {
     display: inline-block;
     font-size: 30px;
@@ -23,6 +28,90 @@ h2 {
     font-size: 25px;
     padding: 12px 0;
     color: #666;
+}
+
+code {
+    background-color: #E7E7E7;
+    border: 1px #DDD solid;
+    padding: 0 3px;
+    font-family: Menlo,Monaco,Consolas,"Andale Mono","lucida console","Courier New",monospace;
+}
+
+.code {
+    font-family: Menlo,Monaco,Consolas,"Andale Mono","lucida console","Courier New",monospace;
+}
+
+.textbox {
+    width: 90%;
+    padding: 5px;
+    outline: none;
+    resize: vertical;
+    border: 1px #888 solid;
+    transition: box-shadow .2s, border .2s;
+}
+
+.textbox:hover {
+    border: 1px #4A9EFF solid;
+    box-shadow: #4A9EFF 0 0 3px;
+}
+
+.textbox:focus {
+    border: 1px #2f8bf5 solid;
+    box-shadow: #2f8bf5 0 0 5px;
+}
+
+select {
+    height: 35px;
+    padding: 0 5px;
+    border: 1px #AAA solid;
+    border-radius: 5px;
+    outline: none;
+    transition: border .2s, border .2s;
+    background-color: #FFF;
+}
+
+select:hover, select:focus {
+    border: 1px #666 solid;
+}
+
+input[type="text"] {
+    height: 35px;
+    padding: 0 8px;
+    background-color: #FFF;
+    border: 1px #AAA solid;
+    border-radius: 5px;
+    outline: none;
+    transition: box-shadow .2s, border .2s;
+}
+
+input[type="text"]:hover {
+    border: 1px #4A9EFF solid;
+    box-shadow: #4A9EFF 0 0 3px;
+}
+
+input[type="text"]:focus {
+    border: 1px #2f8bf5 solid;
+    box-shadow: #2f8bf5 0 0 5px;
+}
+
+input.default[type="button"] {
+    width: 120px;
+    height: 35px;
+    font-size: 16px;
+    color: #FFF;
+    background-color: #2f8bf5;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    transition: background-color .2s;
+}
+
+input.default[type="button"]:hover {
+    background-color: #4A9EFF;
+}
+
+input.default[type="button"]:active {
+    background-color: #1672DB;
 }
 
 #topbar {
@@ -83,6 +172,42 @@ h2 {
     flex: 1;
 }
 
+dl.spr-formtable {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+dl.spr-formtable dt, dl.spr-formtable dd {
+    margin: 5px auto;
+}
+
+dl.spr-formtable dt {
+    margin-right: 10px;
+    padding: 6px 0;
+    flex: 140px;
+    text-align: right;
+    color: #666;
+}
+
+dl.spr-formtable dd {
+    flex: 1038px;
+}
+
+dl.spr-formtable dd p {
+    color: #444;
+    padding: 6px 5px;
+}
+
+@media screen and (max-width: 1200px) {
+    .page {
+        width: 100%;
+    }
+
+    dl.spr-formtable dd {
+        flex: calc(100% - 152px);
+    }
+}
+
 @media screen and (max-width: 800px) {
     #topbar {
         margin-bottom: 5px;
@@ -112,5 +237,100 @@ h2 {
     #infobox {
         margin-top: -5px;
         margin-bottom: 5px;
+    }
+
+    select {
+        width: calc(100% - 45px);
+        height: 35px;
+        background-color: transparent;
+        border: none;
+        border-radius: 0;
+        border-bottom: 2px #AAA solid;
+        outline: none;
+    }
+
+    select:hover, select:focus {
+        border: none;
+        border-bottom: 2px #666 solid;
+    }
+
+    .textbox {
+        margin: 0 auto;
+        margin-bottom: -5px;
+        width: calc(100% - 15px);
+        min-height: 150px;
+        border: none;
+        resize: none;
+    }
+    
+    .textbox:hover {
+        border: none;
+        box-shadow: none;
+    }
+    
+    .textbox:focus {
+        border: none;
+        box-shadow: none;
+    }
+
+    input[type="text"] {
+        width: calc(100% - 65px);
+        background-color: transparent;
+        border: none;
+        border-bottom: 2px #AAA solid;
+        border-radius: 0;
+        outline: none;
+    }
+    
+    input[type="text"]:hover {
+        border: none;
+        border-bottom: 2px #4A9EFF solid;
+        box-shadow: none;
+    }
+    
+    input[type="text"]:focus {
+        border: none;
+        border-bottom: 2px #2f8bf5 solid;
+        box-shadow: none;
+    }
+
+    input.default[type="button"] {
+        width: calc(100% - 45px);
+        height: 35px;
+        background-color: transparent;
+        border-bottom: 2px #AAA solid;
+        color: #333;
+        border-radius: 0;
+    }
+
+    input.default[type="button"]:hover {
+        background-color: transparent;
+        border-bottom: 2px #4A9EFF solid;
+    }
+    
+    input.default[type="button"]:active {
+        background-color: #A1C8F5;
+        border-bottom: 2px #1672DB solid;
+    }
+
+    dl.spr-formtable dt, dl.spr-formtable dd {
+        flex: 100%;
+    }
+
+    dl.spr-formtable dt {
+        margin: 2px 0 -2px 0;
+        padding: 5px 5px 0 10px;
+        font-size: 14px;
+        text-align: left;
+    }
+    
+    dl.spr-formtable dd {
+        text-align: center;
+    }
+
+    dl.spr-formtable dd p {
+        padding-left: 20px;
+        padding-right: 10px;
+        text-align: left;
     }
 }

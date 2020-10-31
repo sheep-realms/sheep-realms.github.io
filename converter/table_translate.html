@@ -44,19 +44,21 @@
                 </select>
             </div>
             <div class="right">
-                <input type="button" value="转    换" onclick="start()">
+                <input class="default" type="button" value="转    换" onclick="start()">
             </div>
         </div>
 
         <div id="content" class="flex2fr">
             <div class="left">
-                <textarea class="textbox" name="" id="input" cols="30" rows="10"></textarea>
+                <textarea class="textbox code" name="" id="input" cols="30" rows="10"></textarea>
             </div>
             <div class="right">
-                <textarea class="textbox" name="" id="output" cols="30" rows="10"></textarea>
+                <textarea class="textbox code" name="" id="output" cols="30" rows="10"></textarea>
             </div>
         </div>
     </div>
+
+    <script src="js/common.js"></script>
     <script src="js/table_translate.js"></script>
     <script>
         $('#input').val("示例1,示例2,示例3\n示例A,示例B,示例C");
