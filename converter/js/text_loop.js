@@ -70,7 +70,7 @@ function summon(start, end, change, before, content, after) {
         }
     }
 
-    function munDes(value, add) {
+    function numDes(value, add) {
         if (change > 0) {
             return parseInt(end) - value - add + parseInt(start);
         } else if (change < 0) {
@@ -82,15 +82,15 @@ function summon(start, end, change, before, content, after) {
         if (formatText.indexOf("{{{#SPR:NOTFORMAT}}}") != -1) {
             return formatText = formatText.replace("{{{#SPR:NOTFORMAT}}}","");
         }
-        formatText = formatText.replace("{{{SPR:MUN}}}",value);
-        formatText = formatText.replace("{{{SPR:MUN1}}}",value+1);
-        formatText = formatText.replace("{{{SPR:MUN-ZH}}}",munZh(value));
-        formatText = formatText.replace("{{{SPR:MUN-JP-HIRA}}}",munHira(value));
-        formatText = formatText.replace("{{{SPR:MUN-JP-KATA}}}",munKata(value));
-        formatText = formatText.replace("{{{SPR:MUN-EN-UPPER}}}",munEn(value,0));
-        formatText = formatText.replace("{{{SPR:MUN-EN-LOWER}}}",munEn(value,1));
-        formatText = formatText.replace("{{{SPR:MUN-DES}}}",munDes(value,0));
-        formatText = formatText.replace("{{{SPR:MUN-DES1}}}",munDes(value,1));
+        formatText = formatText.replace("{{{SPR:NUM}}}",value);
+        formatText = formatText.replace("{{{SPR:NUM1}}}",value+1);
+        formatText = formatText.replace("{{{SPR:NUM-ZH}}}",numZh(value));
+        formatText = formatText.replace("{{{SPR:NUM-JP-HIRA}}}",numHira(value));
+        formatText = formatText.replace("{{{SPR:NUM-JP-KATA}}}",numKata(value));
+        formatText = formatText.replace("{{{SPR:NUM-EN-UPPER}}}",numEn(value,0));
+        formatText = formatText.replace("{{{SPR:NUM-EN-LOWER}}}",numEn(value,1));
+        formatText = formatText.replace("{{{SPR:NUM-DES}}}",numDes(value,0));
+        formatText = formatText.replace("{{{SPR:NUM-DES1}}}",numDes(value,1));
         formatText = formatText.replace("{{{SPR:DATE}}}",Date());
         formatText = formatText.replace("{{{SPR:NOW}}}",Date.now());
         return formatText;
@@ -112,19 +112,19 @@ function summon(start, end, change, before, content, after) {
     return text;
 }
 
-function munZh(munber) {
+function numZh(number) {
     var text = "";
-    if (munber < 0) {
+    if (number < 0) {
         text = "负"
     }
 
-    munber = munber.toString();
+    number = number.toString();
     
-    for (var i = 0; i<munber.length; i++) {
-        if (munber.substring(i,i+1) == ".") {
+    for (var i = 0; i<number.length; i++) {
+        if (number.substring(i,i+1) == ".") {
             text += "点"
         } else {
-            switch (parseInt(munber.substring(i,i+1))) {
+            switch (parseInt(number.substring(i,i+1))) {
                 case 0: text += "零"; break;
                 case 1: text += "一"; break;
                 case 2: text += "二"; break;
@@ -142,21 +142,21 @@ function munZh(munber) {
     return text;
 }
 
-function munZhGmr(munber) {
+function numZhGmr(number) {
     var text = "";
     var after = "";
-    if (munber < 0) {
+    if (number < 0) {
         after = "负"
-        munber *= -1;
+        number *= -1;
     }
 
 
 }
 
-function munHira(munber) {
-    if (munber < 0) munber = parseInt(munber) * -1
+function numHira(number) {
+    if (number < 0) number = parseInt(number) * -1
     
-    switch (parseInt(munber)) {
+    switch (parseInt(number)) {
         case 0: text = "あ"; break;
         case 1: text = "い"; break;
         case 2: text = "う"; break;
@@ -203,16 +203,16 @@ function munHira(munber) {
         case 43: text = "わ"; break;
         case 44: text = "を"; break;
         case 45: text = "ん"; break; 
-        default: text = munber;
+        default: text = number;
     }
 
     return text;
 }
 
-function munKata(munber) {
-    if (munber < 0) munber = parseInt(munber) * -1
+function numKata(number) {
+    if (number < 0) number = parseInt(number) * -1
     
-    switch (parseInt(munber)) {
+    switch (parseInt(number)) {
         case 0: text = "ア"; break;
         case 1: text = "イ"; break;
         case 2: text = "ウ"; break;
@@ -259,23 +259,23 @@ function munKata(munber) {
         case 43: text = "ワ"; break;
         case 44: text = "ヲ"; break;
         case 45: text = "ン"; break;
-        default: text = munber;
+        default: text = number;
     }
 
     return text;
 }
 
-function munEn(munber,type) {
+function numEn(number,type) {
     var start;
 
     if (type == 1) {
-        if (munber < 26) {
-            return String.fromCharCode(97 + munber);
+        if (number < 26) {
+            return String.fromCharCode(97 + number);
         }
     } else {
-        if (munber < 26) {
-            return String.fromCharCode(65 + munber);
+        if (number < 26) {
+            return String.fromCharCode(65 + number);
         }
     }
-    return munber;
+    return number;
 }
