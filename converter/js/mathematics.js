@@ -53,15 +53,15 @@ function numZhGmr(num,type=0) {
     if (type == 0) {
         result = result.replace(/零(千|百|十)/g, '零').replace(/十零/g, '十');
         result = result.replace(/零+/g, '零');
-        result = result.replace(/零亿/g, '亿').replace(/零万/g, '万');
-        result = result.replace(/亿万/g, '亿');
+        result = result.replace(/零兆/g, '兆').replace(/零亿/g, '亿').replace(/零万/g, '万');
+        result = result.replace(/兆亿/g, '兆').replace(/兆万/g, '兆').replace(/亿万/g, '亿');
         result = result.replace(/零+$/, '')
         result = result.replace(/^一十/g, '十');
     } else if (type == 1) {
         result = result.replace(/零(仟|佰|拾)/g, '零').replace(/拾零/g, '拾');
         result = result.replace(/零+/g, '零');
-        result = result.replace(/零亿/g, '亿').replace(/零万/g, '万');
-        result = result.replace(/亿万/g, '亿');
+        result = result.replace(/零兆/g, '兆').replace(/零亿/g, '亿').replace(/零万/g, '万');
+        result = result.replace(/兆亿/g, '兆').replace(/兆万/g, '兆').replace(/亿万/g, '亿');
         result = result.replace(/零+$/, '')
         result = result.replace(/^壹拾/g, '拾');
     }
