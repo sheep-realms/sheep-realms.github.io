@@ -29,6 +29,12 @@ function numZh(number) {
 }
 
 function numZhGmr(num,type=0) {
+    var before = "";
+    if (num < 0) {
+        before = "负"
+        num = parseInt(num) * -1
+    }
+
     var arr1, arr2;
     if (type == 0) {
         arr1 = new Array('零', '一', '二', '三', '四', '五', '六', '七', '八', '九');
@@ -66,7 +72,7 @@ function numZhGmr(num,type=0) {
         result = result.replace(/^壹拾/g, '拾');
     }
 
-    return result;
+    return before + result;
 
 }
 
