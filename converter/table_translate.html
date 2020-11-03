@@ -62,6 +62,19 @@
     <script src="js/table_translate.js"></script>
     <script>
         $('#input').val("示例1,示例2,示例3\n示例A,示例B,示例C");
+
+        $(document).ready(function(){
+            var clear = getUrlPmt("clear");
+            var exp = getUrlPmt("exp");
+            var ext = getUrlPmt("ext");
+            var input = getUrlPmt("input");
+            var ok = getUrlPmt("ok");
+            if (clear == 1) $("input[type='text'], textarea").val("");
+            if (exp != false) $("#exp").val(exp);
+            if (ext != false) $("#ext").val(ext);
+            if (input != false) $("#input").val(input);
+            if (ok == 1) start();
+        });
     </script>
 </body>
 </html>

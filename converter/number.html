@@ -50,9 +50,18 @@
     <script src="js/common.js"></script>
     <script src="js/mathematics.js"></script>
     <script>
+        $(document).ready(function(){
+            var num = getUrlPmt("num");
+            var numtype = getUrlPmt("numtype");
+            var ok = getUrlPmt("ok");
+            if (num != false) $("#num").val(num);
+            if (numtype != false) $("#numtype").val(numtype);
+            if (ok == 1) start();
+        });
+
         function start() {
             var text;
-            var number = parseInt($('#num').val());
+            var number = $('#num').val();
             if (isNaN($('#num').val())) {
                 outErr("必须是数字！");
                 return;

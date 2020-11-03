@@ -93,6 +93,25 @@
         $('#before').val("这是开头\n");
         $('#content').val("这是第{{{SPR:NUM}}}行\n");
         $('#after').val("这是结尾");
+
+        $(document).ready(function(){
+            var clear = getUrlPmt("clear");
+            var start = getUrlPmt("start");
+            var end = getUrlPmt("end");
+            var change = getUrlPmt("change");
+            var before = getUrlPmt("before");
+            var content = getUrlPmt("content");
+            var after = getUrlPmt("after");
+            var ok = getUrlPmt("ok");
+            if (clear == 1) $("input[type='text'], textarea").val("");
+            if (start != false) $("#start").val(start);
+            if (end != false) $("#end").val(end);
+            if (change != false) $("#change").val(change);
+            if (before != false) $("#before").val(before);
+            if (content != false) $("#content").val(content);
+            if (after != false) $("#after").val(after);
+            if (ok == 1) outErr("此工具可以影响您的设备性能，不支持通过传参自动执行。如果你通过某个链接进入了此处，并且您不知道您在干什么，请不要做任何事情！");
+        });
     </script>
 </body>
 </html>
