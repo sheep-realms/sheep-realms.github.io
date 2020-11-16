@@ -82,19 +82,19 @@ function summon(start, end, change, before, content, after) {
         if (formatText.indexOf("{{{#SPR:NOTFORMAT}}}") != -1) {
             return formatText = formatText.replace("{{{#SPR:NOTFORMAT}}}","");
         }
-        formatText = formatText.replace("{{{SPR:NUM}}}",value);
-        formatText = formatText.replace("{{{SPR:NUM1}}}",value+1);
-        formatText = formatText.replace("{{{SPR:NUM-ZH}}}",numZh(value));
-        formatText = formatText.replace("{{{SPR:NUM-ZH-GMR}}}",numZhGmr(value,0));
-        formatText = formatText.replace("{{{SPR:NUM-ZH-GMR-F}}}",numZhGmr(value,1));
-        formatText = formatText.replace("{{{SPR:NUM-JP-HIRA}}}",numHira(value));
-        formatText = formatText.replace("{{{SPR:NUM-JP-KATA}}}",numKata(value));
-        formatText = formatText.replace("{{{SPR:NUM-EN-UPPER}}}",numEn(value,0));
-        formatText = formatText.replace("{{{SPR:NUM-EN-LOWER}}}",numEn(value,1));
-        formatText = formatText.replace("{{{SPR:NUM-DES}}}",numDes(value,0));
-        formatText = formatText.replace("{{{SPR:NUM-DES1}}}",numDes(value,1));
-        formatText = formatText.replace("{{{SPR:DATE}}}",Date());
-        formatText = formatText.replace("{{{SPR:NOW}}}",Date.now());
+        formatText = formatText.replaceAll("{{{SPR:NUM}}}",value);
+        formatText = formatText.replaceAll("{{{SPR:NUM1}}}",value+1);
+        formatText = formatText.replaceAll("{{{SPR:NUM-ZH}}}",numZh(value));
+        formatText = formatText.replaceAll("{{{SPR:NUM-ZH-GMR}}}",numZhGmr(value,0));
+        formatText = formatText.replaceAll("{{{SPR:NUM-ZH-GMR-F}}}",numZhGmr(value,1));
+        formatText = formatText.replaceAll("{{{SPR:NUM-JP-HIRA}}}",numHira(value));
+        formatText = formatText.replaceAll("{{{SPR:NUM-JP-KATA}}}",numKata(value));
+        formatText = formatText.replaceAll("{{{SPR:NUM-EN-UPPER}}}",numEn(value,0));
+        formatText = formatText.replaceAll("{{{SPR:NUM-EN-LOWER}}}",numEn(value,1));
+        formatText = formatText.replaceAll("{{{SPR:NUM-DES}}}",numDes(value,0));
+        formatText = formatText.replaceAll("{{{SPR:NUM-DES1}}}",numDes(value,1));
+        formatText = formatText.replaceAll("{{{SPR:DATE}}}",Date());
+        formatText = formatText.replaceAll("{{{SPR:NOW}}}",Date.now());
         return formatText;
     }
 

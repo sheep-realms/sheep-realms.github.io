@@ -28,3 +28,7 @@ function outErr(text) {
     out("错误："+text,"err")
     scrollTo(0,0);
 }
+
+String.prototype.replaceAll = function (FindText, RepText) {
+    return this.replace(new RegExp(FindText, "g"), RepText);
+}
