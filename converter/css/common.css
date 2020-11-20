@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: "Microsoft YaHei", Arial, sans-serif, "PingFang SC";
+    font-family: "Microsoft YaHei", Arial, sans-serif, "PingFang SC", "Microsoft YaHei";
 }
 
 body {
@@ -94,7 +94,7 @@ input[type="text"]:focus {
     box-shadow: #2f8bf5 0 0 5px;
 }
 
-input.default[type="button"] {
+input.default[type="button"], input.default[type="submit"] {
     width: 120px;
     height: 35px;
     font-size: 16px;
@@ -106,11 +106,11 @@ input.default[type="button"] {
     transition: background-color .2s;
 }
 
-input.default[type="button"]:hover {
+input.default[type="button"]:hover, input.default[type="submit"]:hover {
     background-color: #4A9EFF;
 }
 
-input.default[type="button"]:active {
+input.default[type="button"]:active, input.default[type="submit"]:active {
     background-color: #1672DB;
 }
 
@@ -219,13 +219,13 @@ dl.spr-formtable dd p {
 
     h1 {
         flex: 1;
-        font-size: 18px;
+        font-size: 14px;
         padding: 20px 5px 18px 20px;
         border: none;
     }
 
     h2 {
-        flex: 1;
+        flex: 2;
         display: inline-block;
         font-size: 25px;
         padding: 12px 0;
@@ -294,7 +294,7 @@ dl.spr-formtable dd p {
         box-shadow: none;
     }
 
-    input.default[type="button"] {
+    input.default[type="button"], input.default[type="submit"] {
         width: calc(100% - 45px);
         height: 35px;
         background-color: transparent;
@@ -303,12 +303,12 @@ dl.spr-formtable dd p {
         border-radius: 0;
     }
 
-    input.default[type="button"]:hover {
+    input.default[type="button"]:hover, input.default[type="submit"]:hover {
         background-color: transparent;
         border-bottom: 2px #4A9EFF solid;
     }
     
-    input.default[type="button"]:active {
+    input.default[type="button"]:active, input.default[type="submit"]:active {
         background-color: #A1C8F5;
         border-bottom: 2px #1672DB solid;
     }

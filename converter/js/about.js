@@ -2,6 +2,15 @@ var project = {
     "name":         "SPR Converter",
     "author":       "SHEEP REALMS",
     "version":      "20201116a",
+    "main": [
+        {
+            "name": "table_traslate",
+        }, {
+            "name": "text_loop",
+        }, {
+            "name": "number",
+        }
+    ]
 };
 
 function about() {
