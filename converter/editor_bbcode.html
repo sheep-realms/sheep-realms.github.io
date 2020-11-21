@@ -25,22 +25,55 @@
     </div>
 
     <div class="page">
+        <div class="extend-bar">
+            <p>
+                请选择扩展：
+                <select id="sel-extend">
+                    <option value = "mcbbs" selected>MCBBS</option>
+                </select>
+
+                <input class="default" type="button" value="加    载" onclick="loadBBCodeExtend($('#sel-extend').val());">
+            </p>
+        </div>
+
+        <!--编辑器主体-->
         <div class="editor" data-obj="main-text">
             <div class="tool-bar">
                 <div class="tool-group">
-                    <div class="top tool-group-font">
+                    <div class="top tool-group-font"><!--字体组-->
                         <button class="btn-font" data-code="font">字体</button>
                         <button class="btn-size" data-code="size">字号</button>
                     </div>
-                    <div>
-                        <button class="btn-b" data-code="b">B</button>
-                        <button class="btn-i" data-code="i">I</button>
-                        <button class="btn-u" data-code="u">U</button>
-                        <button class="btn-s" data-code="s">S</button>
-                        <button class="btn-hr" data-code="hr">--</button>
+                    <div><!--字形组-->
+                        <button class="btn-b" data-code="b" title="粗体">B</button>
+                        <button class="btn-i" data-code="i" title="斜体">I</button>
+                        <button class="btn-u" data-code="u" title="下划线">U</button>
+                        <button class="btn-s" data-code="s" title="删除线">S</button>
+                        <button class="btn-hr" data-code="hr" title="分割线">--</button>
                     </div>
                 </div>
-                <button class="btn-url" data-code="url">链</button>
+                <div class="tool-group">
+                    <div class="top">
+                        <button class="btn-p" data-code="p" title="自动排版">自</button>
+                        <button class="btn-align-left" data-code="align" data-v1="left" title="左对齐">左</button>
+                        <button class="btn-align-center" data-code="align" data-v1="center" title="居中对齐">中</button>
+                        <button class="btn-align-right" data-code="align" data-v1="right" title="右对齐">右</button>
+                    </div>
+                    <div>
+                        <button class="btn-url" data-code="url" title="链接">链</button>
+                        <button class="btn-img" data-code="img" title="图片">图</button>
+                    </div>
+                </div>
+                <div class="tool-group tool-group-extend">
+                    <p>
+                        <button class="btn-quote" data-code="quote" title="引用内容">引</button>
+                        <button class="btn-code" data-code="code" title="代码">码</button>
+                    </p>
+                    <p>
+                        <button class="btn-free" data-code="free" title="免费信息">免</button>
+                        <button class="btn-hide" data-code="hide" title="隐藏内容">隐</button>
+                    </p>
+                </div>
             </div>
 
             <!-- 通用参数模板 -->
@@ -48,16 +81,29 @@
                 <form action="" method="post" target="nm_iframe">
                     <dl class="spr-formtable">
                         <dt class="vline vl0" id="vt0">主要内容</dt>
-                        <dd class="vline vl0"><input class="v" type="text" name="" id="v0"></dd>
+                        <dd class="vline vl0">
+                            <input class="v" type="text" name="" id="v0" autocomplete="off">
+                            <em class="vline vm0" id="vm0">描述</em>
+                        </dd>
                         <dt class="vline vl1" id="vt1">参数一</dt>
-                        <dd class="vline vl1"><input class="v" type="text" name="" id="v1"></dd>
+                        <dd class="vline vl1">
+                            <input class="v" type="text" name="" id="v1" autocomplete="off">
+                            <em class="vline vm1" id="vm1">描述</em>
+                        </dd>
                         <dt class="vline vl2" id="vt2">参数二</dt>
-                        <dd class="vline vl2"><input class="v" type="text" name="" id="v2"></dd>
+                        <dd class="vline vl2">
+                            <input class="v" type="text" name="" id="v2" autocomplete="off">
+                            <em class="vline vm2" id="vm2">描述</em>
+                        </dd>
                         <dt class="vline vl3" id="vt3">参数三</dt>
-                        <dd class="vline vl3"><input class="v" type="text" name="" id="v3"></dd>
+                        <dd class="vline vl3">
+                            <input class="v" type="text" name="" id="v3" autocomplete="off">
+                            <em class="vline vm3" id="vm3">描述</em>
+                        </dd>
                         <dt></dt>
                         <dd>
-                            <input class="default" type="submit" value="完   成" onclick="iptbarOut();">
+                            <input class="default" type="submit" value="完    成" onclick="iptbarOut();">
+                            <input type="button" value="取    消" onclick="showIpt();">
                         </dd>
                     </dl>
                 </form>
@@ -65,22 +111,56 @@
 
             <!-- 字体 参数模板 -->
             <div class="ipt-bar close" id="iptbox-font">
-                <ul class="opt-list font-list">
-                    <li data-font="宋体" style="font-family: 宋体;">宋体</li>
-                    <li data-font="新宋体" style="font-family: 新宋体;">新宋体</li>
-                    <li data-font="黑体" style="font-family: 黑体;">黑体</li>
-                    <li data-font="微软雅黑" style="font-family: 微软雅黑;">微软雅黑</li>
-                    <li data-font="Arial" style="font-family: Arial;">Arial</li>
-                    <li data-font="Verdana" style="font-family: Verdana;">Verdana</li>
-                    <li data-font="simsun" style="font-family: simsun;">simsun</li>
-                    <li data-font="Helvetica" style="font-family: Helvetica;">Helvetica</li>
-                    <li data-font="Trebuchet MS" style="font-family: Trebuchet MS;">Trebuchet MS</li>
-                    <li data-font="Tahoma" style="font-family: Tahoma;">Tahoma</li>
-                    <li data-font="Impact" style="font-family: Impact;">Impact</li>
-                    <li data-font="Times New Roman" style="font-family: Times New Roman;">Times New Roman</li>
-                    <li data-font="仿宋,仿宋_GB2312" style="font-family: 仿宋,仿宋_GB2312;">仿宋,仿宋_GB2312</li>
-                    <li data-font="楷体,楷体_GB2312" style="font-family: 楷体,楷体_GB2312;">楷体,楷体_GB2312</li>
-                </ul>
+                <dl class="spr-formtable">
+                    <dt>Discuz!系统内置</dt>
+                    <dd>
+                        <ul class="opt-list font-list">
+                            <li data-font="宋体" style="font-family: 宋体;">宋体</li>
+                            <li data-font="新宋体" style="font-family: 新宋体;">新宋体</li>
+                            <li data-font="黑体" style="font-family: 黑体;">黑体</li>
+                            <li data-font="微软雅黑" style="font-family: 微软雅黑;">微软雅黑</li>
+                            <li data-font="Arial" style="font-family: Arial;">Arial</li>
+                            <li data-font="Verdana" style="font-family: Verdana;">Verdana</li>
+                            <li data-font="simsun" style="font-family: simsun;">simsun</li>
+                            <li data-font="Helvetica" style="font-family: Helvetica;">Helvetica</li>
+                            <li data-font="Trebuchet MS" style="font-family: Trebuchet MS;">Trebuchet MS</li>
+                            <li data-font="Tahoma" style="font-family: Tahoma;">Tahoma</li>
+                            <li data-font="Impact" style="font-family: Impact;">Impact</li>
+                            <li data-font="Times New Roman" style="font-family: Times New Roman;">Times New Roman</li>
+                            <li data-font="仿宋,仿宋_GB2312" style="font-family: 仿宋,仿宋_GB2312;">仿宋,仿宋_GB2312</li>
+                            <li data-font="楷体,楷体_GB2312" style="font-family: 楷体,楷体_GB2312;">楷体,楷体_GB2312</li>
+                        </ul>
+                    </dd>
+                    <dt></dt>
+                    <dd><em>这些是Discuz! X3.4中的预装字体，经过管理人员的修改，部分论坛可能会有所增删。</em></dd>
+                    <dt>其他</dt>
+                    <dd>
+                        <ul class="opt-list font-list">
+                            <li data-font="隶书" style="font-family: 隶书;">隶书</li>
+                            <li data-font="幼圆" style="font-family: 幼圆;">幼圆</li>
+                            <li data-font="华文楷体" style="font-family: 华文楷体;">华文楷体</li>
+                            <li data-font="华文宋体" style="font-family: 华文宋体;">华文宋体</li>
+                            <li data-font="华文中宋" style="font-family: 华文中宋;">华文中宋</li>
+                            <li data-font="华文仿宋" style="font-family: 华文仿宋;">华文仿宋</li>
+                            <li data-font="华文细黑" style="font-family: 华文细黑;">华文细黑</li>
+                            <li data-font="华文彩云" style="font-family: 华文彩云;">华文彩云</li>
+                            <li data-font="华文琥珀" style="font-family: 华文琥珀;">华文琥珀</li>
+                            <li data-font="华文隶书" style="font-family: 华文隶书;">华文隶书</li>
+                            <li data-font="华文行楷" style="font-family: 华文行楷;">华文行楷</li>
+                            <li data-font="华文新魏" style="font-family: 华文新魏;">华文新魏</li>
+                            <li data-font="方正舒体" style="font-family: 方正舒体;">方正舒体</li>
+                            <li data-font="方正姚体" style="font-family: 方正姚体;">方正姚体</li>
+                            <li data-font="Courier New" style="font-family: Courier New;">Courier New</li>
+                            <li data-font="Consolas" style="font-family: Consolas;">Consolas</li>
+                            <li data-font="lucida console" style="font-family: lucida console;">lucida console</li>
+                            <li data-font="monospace" style="font-family: monospace;">monospace</li>
+                        </ul>
+                    </dd>
+                    <dt></dt>
+                    <dd><em>受限于浏览器和系统，部分字体可能无法正常显示。</em></dd>
+                    <dt></dt>
+                    <dd><input type="button" value="取    消" onclick="showIpt();"></dd>
+                </dl>
             </div>
 
             <!-- 字号 参数模板 -->
@@ -100,21 +180,29 @@
                     <div class="right">
                         <h4>字号</h4>
                         <p>
-                            <input type="text" id="size-text" value="14px">
-                            <input class="default" type="button" value="完   成" onclick="output('size', $('#size-text').val());">
+                            <input type="text" id="size-text" value="14px" autocomplete="off">
+                            <input class="default" type="button" value="完    成" onclick="output('size', $('#size-text').val());">
+                            <input type="button" value="取   消" onclick="showIpt();">
                         </p>
-                        <p></p><input type="range" class="siez-range" id="size-range" min="0" max="99" value="14"></p>
+                        <p></p><input type="range" class="size-range" id="size-range" min="0" max="99" value="14"></p>
                     </div>
                 </div>
             </div>
 
             <textarea class="textbox editor-text" name="" id="main-text" cols="30" rows="10"></textarea>
             <iframe id="id_iframe" name="nm_iframe" style="display:none;"></iframe>
+
+            <div id="footer">
+                <em>版本：v2020.11.21.a</em><br>
+                <em>此工具仍处于开发阶段，可能会遇到一些故障或未完善的功能</em>
+            </div>
         </div>
     </div>
 
     <script src="js/common.js"></script>
+    <script src="js/editor_bbcode_ini.js"></script>
     <script src="js/editor_bbcode.js"></script>
+    <script src="js/clipboard.min.js"></script>
     <script>
         $('.size-list>li').click(function() {
             output("size", $(this).data('size'))
@@ -124,9 +212,44 @@
             output("font", $(this).data('font'))
         })
 
-        $('.siez-range').change(function() {
-            $('#size-text').val($(this).val()+"px")
+        $('#size-text').change(function() {
+            $('#size-range').val(parseInt($(this).val()));
         })
+
+        $('#size-range').change(function() {
+            $('#size-text').val($(this).val()+"px");
+        })
+
+        $(function(){
+            $(document).keydown(function(e){
+                if (e.ctrlKey && e.which == 83){
+                    e.preventDefault();
+                    outMsg("这里可没有保存功能哦！请自行将内容保存到本地。");
+                    var clipboard = new ClipboardJS("#main-text")
+                }
+            });
+        });
+
+        // var log = [];
+        // $(function () {
+        //     var txt = window.setInterval(function () {
+        //         if (log[0] != $("#main-text").val()) {
+        //             log.unshift($("#main-text").val());
+        //         }
+        //     }, 1500);
+        //     var isCtrl = false;
+        //     $(document).keydown(function (e) {
+        //         if (e.which === 17)
+        //             isCtrl = true;
+        //         if (e.which === 90 && isCtrl === true) {
+        //             $("#main-text").val(log.shift()).blur();
+                    
+        //         }
+        //     }).keyup(function (e) {
+        //         if (e.which === 17)
+        //         isCtrl = false;
+        //     });
+        // });
     </script>
 </body>
 </html>

@@ -94,6 +94,26 @@ input[type="text"]:focus {
     box-shadow: #2f8bf5 0 0 5px;
 }
 
+input[type="button"], input.default[type="submit"] {
+    width: 120px;
+    height: 35px;
+    font-size: 16px;
+    color: #222;
+    background-color: #FFF;
+    border: 1px #AAA solid;
+    border-radius: 5px;
+    outline: none;
+    transition: background-color .2s;
+}
+
+input[type="button"]:hover, input.default[type="submit"]:hover {
+    background-color: #FAFAFA;
+}
+
+input[type="button"]:active, input.default[type="submit"]:active {
+    background-color: #DDD;
+}
+
 input.default[type="button"], input.default[type="submit"] {
     width: 120px;
     height: 35px;
@@ -196,6 +216,25 @@ dl.spr-formtable dd {
 dl.spr-formtable dd p {
     color: #444;
     padding: 6px 5px;
+}
+
+dl.spr-formtable dd em {
+    color: #888;
+    font-style: normal;
+    font-size: 12px;
+    display: block;
+}
+
+#footer {
+    text-align: center;
+    margin-top: 50px;
+}
+
+#footer em {
+    color: #888;
+    font-style: normal;
+    font-size: 12px;
+    display: block;
 }
 
 @media screen and (max-width: 1200px) {

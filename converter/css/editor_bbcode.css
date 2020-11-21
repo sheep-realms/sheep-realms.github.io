@@ -1,5 +1,21 @@
 .hide {
-    display: none;
+    display: none!important;
+}
+
+.extend-bar {
+    padding: 5px;
+    max-height: 200px;
+    overflow: hidden;
+    transition: max-height .3s, padding .3s;
+}
+
+.extend-bar.close {
+    padding: 0 5px;
+    max-height: 0;
+}
+
+#sel-extend {
+    width: 200px;
 }
 
 .editor {
@@ -19,6 +35,16 @@
     display: inline-block;
     padding-right: 5px;
     border-right: 1px #AAA solid;
+}
+
+.tool-group p {
+    display: inline-block;
+    width: 31px;
+    padding: 0 0.5px;
+}
+
+.tool-group p button:first-child {
+    margin-bottom: 6px;
 }
 
 .btn-font {
@@ -128,7 +154,7 @@ button {
 .size-6 {font-size: 32px;}
 .size-7 {font-size: 48px; padding: 0 15px;}
 
-input.siez-range {
+input.size-range {
     height: 50px;
     width: 300px;
 }
