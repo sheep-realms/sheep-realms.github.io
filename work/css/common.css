@@ -1,0 +1,385 @@
+* {
+    padding: 0;
+    margin: 0;
+
+    --width-cmdlist: 400px;
+    --width-cmdtask: 300px;
+    --width-cmdout: calc(100vw - var(--width-cmdlist) - var(--width-cmdtask) - 146px);
+    --left-cmdlist-hide: calc(var(--width-cmdlist) * -1 - 50px);
+    --left-cmdout-hide: calc(var(--width-cmdout) * -1 - 50px);
+}
+
+@media screen and (max-width:1200px ) {
+    * {
+        --width-cmdlist: 300px;
+        --width-cmdtask: 0px;
+        --width-cmdout: calc(100vw - var(--width-cmdlist) - var(--width-cmdtask) - 109px);
+    }
+
+    #cmdtask {
+        display: none;
+    }
+    
+}
+
+*::selection {
+    background-color: #FFF;
+    color: #000;
+}
+
+html, body, .main {
+    height: calc(100vh);
+    overflow-x: hidden;
+}
+
+hr {
+    height: 1px;
+    background-color: rgba(255,255,255,0.5);
+    margin: 5px 0;
+    border: none;
+}
+
+.main {
+    width: 100%;
+    color: #FFF;
+    background-color: rgba(0,0,0,0.25);
+    position: absolute;
+}
+
+body {
+    background: #1d5a83;
+    background: -webkit-radial-gradient(center ellipse, #0a2e38 0%, #000000 70%);
+    background: radial-gradient(ellipse at center, #1b5e70 0%, #061f25 70%);
+    background-size: 100%;
+}
+
+#background {
+    position: absolute;
+    height: calc(100vh);
+    width: 100%;
+    transition: backdrop-filter .3s;
+}
+
+#background.blur {
+    backdrop-filter: blur(10px);
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+#clock {
+    font-family: 'Share Tech Mono', monospace;
+    color: #ffffff;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    color: #daf6ff;
+    text-shadow: 0 0 20px #0aafe6, 0 0 20px rgba(10, 175, 230, 0);
+    user-select: none;
+}
+#clock .time {
+    letter-spacing: 0.05em;
+    font-size: 80px;
+    padding: 5px 0;
+}
+#clock .date {
+    letter-spacing: 0.1em;
+    font-size: 24px;
+}
+#clock .text {
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    padding: 20px 0 0;
+}
+
+
+#cmdlist {
+    z-index: 6010;
+    border: rgba(176, 216, 228, 0.8) 1px solid;
+    position: absolute;
+    height: calc(100vh - 165px);
+    width: var(--width-cmdlist);
+    top: 25px;
+    left: 25px;
+    background-color: rgba(49, 133, 156, 0.15);
+    box-shadow: #31859c 0 0 15px ;
+    padding: 10px;
+    overflow: auto;
+    filter: opacity(1);
+    transition: left .3s, width .35s, filter .3s;
+}
+
+#cmdlist.hide {
+    left: var(--left-cmdlist-hide);
+    filter: opacity(0);
+}
+
+#cmdlist::-webkit-scrollbar {
+    width: 9px;
+    background-color: rgba(56, 208, 224, 0.15);
+}
+
+#cmdlist::-webkit-scrollbar-thumb {
+    background-color: rgba(56, 208, 224, 0.35);
+}
+
+.cmditem {
+    height: 20px;
+    width: calc(100% - 14px);
+    border-radius: 5px;
+    background-color: rgba(56, 208, 224, 0.75);
+    margin-bottom: 10px;
+    transition: background-color .2s, box-shadow .2s, color .2s;
+    padding: 7px;
+    color: #FFF;
+    user-select: none;
+}
+
+.cmditem:before {
+    content: ">";
+    margin-right: 5px;
+    margin-left: 2px;
+    position: relative;
+    top: -2px;
+}
+
+.cmditem:hover:not(.lost) {
+    background-color: rgba(106, 225, 238, 0.8);
+    box-shadow: #31859c 0 0 10px;
+}
+
+.cmditem:active:not(.lost) {
+    background-color: rgba(76, 197, 211, 0.65);
+    box-shadow: #257186 0 0 7px;
+    transition: background-color 0s, box-shadow 0s;
+}
+
+.cmditem.lost {
+    background-color: rgba(56, 208, 224, 0.35);
+    color: rgba(255,255,255,0.5);
+}
+
+#cmdout {
+    z-index: 6009;
+    border: rgba(176, 216, 228, 0.8) 1px solid;
+    position: absolute;
+    height: calc(100vh - 165px);
+    width: var(--width-cmdout);
+    top: 25px;
+    left: calc(var(--width-cmdlist) + 62px);
+    background-color: rgba(49, 133, 156, 0.15);
+    box-shadow: #31859c 0 0 15px ;
+    padding: 10px;
+    overflow: auto;
+    overflow-x: hidden;
+    word-wrap: break-word;
+    word-break: normal;
+    filter: opacity(1);
+    transition: left .35s, width .35s, filter .5s;
+}
+
+#cmdout.hide {
+    left: var(--left-cmdout-hide);
+    filter: opacity(0);
+}
+
+#cmdout::-webkit-scrollbar {
+    width: 9px;
+    background-color: rgba(56, 208, 224, 0.15);
+}
+
+#cmdout::-webkit-scrollbar-thumb {
+    background-color: rgba(56, 208, 224, 0.35);
+}
+
+
+#cmdtask {
+    z-index: 6008;
+    border: rgba(176, 216, 228, 0.8) 1px solid;
+    position: fixed;
+    height: calc(100vh - 165px);
+    width: var(--width-cmdtask);
+    top: 25px;
+    right: 25px;
+    background-color: rgba(49, 133, 156, 0.15);
+    box-shadow: #31859c 0 0 15px ;
+    padding: 10px;
+    overflow: auto;
+    filter: opacity(1);
+    transition: right .3s, width .35s, filter .3s;
+    word-wrap: break-word;
+    word-break: normal;
+}
+
+#cmdtask.hide {
+    right: calc(var(--width-cmdtask) * -1 - 50px);
+    filter: opacity(0);
+}
+
+#cmdtask::-webkit-scrollbar {
+    width: 9px;
+    background-color: rgba(56, 208, 224, 0.15);
+}
+
+#cmdtask::-webkit-scrollbar-thumb {
+    background-color: rgba(56, 208, 224, 0.35);
+}
+
+
+#cmdipt {
+    border: rgba(176, 216, 228, 0.8) 1px solid;
+    position: fixed;
+    height: 35px;
+    width: calc(100vw - 52px);
+    bottom: 65px;
+    left: 25px;
+    background-color: rgba(49, 133, 156, 0.15);
+    box-shadow: #31859c 0 0 15px ;
+    overflow: hide;
+    filter: opacity(1);
+    transition: left .3s, width .5s, filter .65s;
+}
+
+#cmdipt.hide {
+    /* left: calc(-100vw - 25px); */
+    left: -225px;
+    width: 200px;
+    filter: opacity(0);
+}
+
+#cmdouttxt.close {
+    display: none;
+}
+
+#cmdoutmedia {
+    border: rgba(176, 216, 228, 0.8) 1px solid;
+    margin-top: -2px;
+    height: 100%;
+    width: 100%;
+}
+
+#cmdoutmedia.close {
+    display: none;
+}
+
+#cmdoutmedia iframe {
+    border: none;
+    height: 100%;
+    width: 100%;
+}
+
+#cmdoutmedia iframe::-webkit-scrollbar {
+    width: 9px;
+    background-color: rgba(56, 208, 224, 0.15);
+}
+
+#cmdoutmedia iframe::-webkit-scrollbar-thumb {
+    background-color: rgba(56, 208, 224, 0.35);
+}
+
+
+.task-item {
+    margin-bottom: 10px;
+}
+
+.task-title {
+    min-height: 21px;
+    padding: 7px 10px;
+    background-color: rgba(56, 208, 224, 0.35);
+    color: rgba(255,255,255,0.8);
+}
+
+.task-content {
+    background-color: rgba(49, 133, 156, 0.15);
+    color: rgba(255,255,255,0.8);
+    padding: 7px 10px;
+    font-size: 15px;
+    word-wrap: break-word;
+    word-break: normal;
+}
+
+.task-item.close .task-content {
+    display: none;
+}
+
+#cmdform {
+    height: 35px;
+}
+
+#cmdipttxt {
+    width: calc(100% - 20px);
+    height: 100%;
+    outline: none;
+    border: none;
+    padding: 0 10px;
+    background-color: transparent;
+    color: #FFF;
+    font-size: 16px;
+    transition: color .3s;
+}
+
+#cmdipt.hide #cmdipttxt {
+    color: transparent;
+    display: none;
+}
+
+
+#start-window.media-mode #cmdlist{
+    left: var(--left-cmdlist-hide);
+    filter: opacity(0);
+}
+
+#start-window.media-mode #cmdtask {
+    right: calc(var(--width-cmdtask) * -1 - 50px);
+    filter: opacity(0);
+}
+
+#start-window.media-mode #cmdout {
+    left: 25px;
+    width: calc(100vw - 72px);
+    transition: left .3s, width .3s, filter .65s;
+}
+
+#start-window.media-mode #cmdout.hide {
+    left: calc(-100vw);
+    filter: opacity(0);
+}
+
+
+
+#footer {
+    z-index: 8000;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    height: 42px;
+    background-color: rgba(49, 133, 156, 0.35);
+}
+
+#cmdstart {
+    display: inline-flex;
+    width: 60px;
+    height: 100%;
+    background-color: rgba(49, 133, 156, 0);
+    text-align: center;
+    flex-flow: column;
+    line-height: 40px;
+    cursor: default;
+}
+
+#cmdstart:hover {
+    background-color: rgba(49, 133, 156, 0.35);
+}
+
+#cmdstart:active {
+    background-color: rgba(49, 133, 156, 0.25);
+}
+
+#cmdstart:before {
+    content: "⌘";
+}
