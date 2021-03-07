@@ -55,7 +55,7 @@ var sr = {
         {"name": "mcbbs-uid", "value": lang.cmd.value.uid},
         {"name": "mcbbs-username", "value": lang.cmd.value.username},
         {"name": "mcbbs-user-search", "value": lang.cmd.value.username},
-        {"name": "mcbbs-mcbbs-user-space", "value": lang.cmd.value.uid},
+        {"name": "mcbbs-user-space", "value": lang.cmd.value.uid},
         {"name": "mediawiki", "value": lang.cmd.value.search},
         {"name": "moegirl", "value": lang.cmd.value.search},
         {"name": "sogou", "value": lang.cmd.value.search},
