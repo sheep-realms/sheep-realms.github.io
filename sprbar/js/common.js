@@ -192,7 +192,7 @@ $("#cmd-ok").click(function() {
             
             //导向帮助页面
                 case 'help':
-                webOpen('https://sheep-docs.mou.best/');
+                webOpen('https://sheep-docs.mou.best');
                 break;
 
             case 'log':
