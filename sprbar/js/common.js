@@ -20,6 +20,7 @@ var lang = {
             "search": "&lt;<i>搜索关键词...</i>&gt;",
             "uid": "&lt;<i>用户ID</i>&gt;",
             "username": "&lt;<i>用户名</i>&gt;",
+            "help": "&lt;<i>回车即进入帮助页面</i>&gt;",
         }
     }
 }
@@ -61,6 +62,7 @@ var sr = {
         {"name": "sogou", "value": lang.cmd.value.search},
         {"name": "touhouwiki", "value": lang.cmd.value.search},
         {"name": "zhwiki", "value": lang.cmd.value.search},
+        {"name": "help", "value": lang.cmd.value.help},
     ]
 }
 
@@ -176,16 +178,21 @@ $("#cmd-ok").click(function() {
                 webOpen('https://www.mcbbs.net/thread-' + cmdtxt[1] + '-1-1.html');
                 break;
             case 'mcbbs-uid':
-                webOpen('https://www.mcbbs.net/?' + cmdtxt[1] + '-1-1.html');
+                webOpen('https://www.mcbbs.net/?' + cmdtxt[1]);
                 break;
             case 'mcbbs-username':
-                webOpen('https://www.mcbbs.net/home.php?mod=space&username=' + cmdtxt[1] + '-1-1.html');
+                webOpen('https://www.mcbbs.net/home.php?mod=space&username=' + cmdtxt[1]);
                 break;
             case 'mcbbs-user-search':
                 webOpen('https://www.mcbbs.net/home.php?mod=spacecp&ac=search&username=' + cmdtxt[1] + '-1-1.html');
                 break;
             case 'mcbbs-user-space':
                 webOpen('https://www.mcbbs.net/home.php?mod=space&uid=' + cmdtxt[1] + '-1-1.html');
+                break;
+            
+            //导向帮助页面
+                case 'help':
+                webOpen('https://help-sprbar.mou.best');
                 break;
 
             case 'log':
