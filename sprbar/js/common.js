@@ -176,16 +176,16 @@ $("#cmd-ok").click(function() {
                 webOpen('https://www.mcbbs.net/thread-' + cmdtxt[1] + '-1-1.html');
                 break;
             case 'mcbbs-uid':
-                webOpen('https://www.mcbbs.net/?' + cmdtxt[1] + '-1-1.html');
+                webOpen('https://www.mcbbs.net/?' + cmdtxt[1]);
                 break;
             case 'mcbbs-username':
-                webOpen('https://www.mcbbs.net/home.php?mod=space&username=' + cmdtxt[1] + '-1-1.html');
+                webOpen('https://www.mcbbs.net/home.php?mod=space&username=' + cmdtxt[1]);
                 break;
             case 'mcbbs-user-search':
-                webOpen('https://www.mcbbs.net/home.php?mod=spacecp&ac=search&username=' + cmdtxt[1] + '-1-1.html');
+                webOpen('https://www.mcbbs.net/home.php?mod=spacecp&ac=search&username=' + cmdtxt[1]);
                 break;
             case 'mcbbs-user-space':
-                webOpen('https://www.mcbbs.net/home.php?mod=space&uid=' + cmdtxt[1] + '-1-1.html');
+                webOpen('https://www.mcbbs.net/home.php?mod=space&uid=' + cmdtxt[1]);
                 break;
 
             case 'log':
