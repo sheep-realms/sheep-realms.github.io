@@ -1,0 +1,7 @@
+#title-404 {
+    font-size: 8rem;
+    font-weight: 600;
+    color: var(--color-text-quaternary);
+    line-height: 10rem;
+    margin-block-start: -5rem;
+}

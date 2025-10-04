@@ -1,0 +1,20 @@
+#avatar-box {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 5rem;
+    overflow: hidden;
+    box-shadow: 0 0 5rem hsl(215, 16%, 47%, 25%);
+    z-index: -1;
+    margin-block-end: 2rem;
+}
+
+@media (prefers-color-scheme: dark) {
+    #avatar-box {
+        box-shadow: 0 0 5rem hsl(215, 16%, 47%, 50%);
+    }
+}
+
+#avatar-box>img {
+    width: 100%;
+    height: 100%;
+}

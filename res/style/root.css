@@ -1,0 +1,234 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /* 亮色主题色板 */
+    --color-general-light-theme-1: hsl(203, 100%, 97%);
+    --color-general-light-theme-2: hsl(202, 86%, 91%);
+    --color-general-light-theme-3: hsl(201, 82%, 85%);
+    --color-general-light-theme-4: hsl(201, 81%, 75%);
+    --color-general-light-theme-5: hsl(202, 81%, 65%);
+    --color-general-light-theme-6: hsl(202, 81%, 59%);
+    --color-general-light-theme-7: hsl(202, 69%, 47%);
+    --color-general-light-theme-8: hsl(205, 74%, 39%);
+    --color-general-light-theme-9: hsl(211, 85%, 28%);
+    --color-general-light-theme-10: hsl(216, 100%, 20%);
+
+    --color-general-light-theme-6-opacity-12: hsla(202, 81%, 59%, 12%);
+
+    --color-success-light-theme-1: hsl(116, 100%, 97%);
+    --color-success-light-theme-2: hsl(116, 69%, 89%);
+    --color-success-light-theme-3: hsl(114, 63%, 80%);
+    --color-success-light-theme-4: hsl(115, 61%, 71%);
+    --color-success-light-theme-5: hsl(115, 60%, 60%);
+    --color-success-light-theme-6: hsl(115, 59%, 51%);
+    --color-success-light-theme-7: hsl(114, 56%, 41%);
+    --color-success-light-theme-8: hsl(115, 62%, 32%);
+    --color-success-light-theme-9: hsl(118, 76%, 21%);
+    --color-success-light-theme-10: hsl(120, 100%, 14%);
+
+    --color-success-light-theme-6-opacity-12: hsla(115, 59%, 51%, 12%);
+
+    --color-warning-light-theme-1: hsl(48, 100%, 97%);
+    --color-warning-light-theme-2: hsl(47, 82%, 89%);
+    --color-warning-light-theme-3: hsl(47, 79%, 81%);
+    --color-warning-light-theme-4: hsl(46, 79%, 72%);
+    --color-warning-light-theme-5: hsl(46, 78%, 64%);
+    --color-warning-light-theme-6: hsl(46, 78%, 55%);
+    --color-warning-light-theme-7: hsl(46, 64%, 43%);
+    --color-warning-light-theme-8: hsl(43, 69%, 34%);
+    --color-warning-light-theme-9: hsl(37, 80%, 25%);
+    --color-warning-light-theme-10: hsl(30, 100%, 16%);
+
+    --color-warning-light-theme-6-opacity-12: hsla(46, 78%, 55%, 12%);
+
+    --color-danger-light-theme-1: hsl(355, 100%, 97%);
+    --color-danger-light-theme-2: hsl(357, 80%, 90%);
+    --color-danger-light-theme-3: hsl(356, 77%, 83%);
+    --color-danger-light-theme-4: hsl(357, 76%, 74%);
+    --color-danger-light-theme-5: hsl(357, 75%, 67%);
+    --color-danger-light-theme-6: hsl(357, 75%, 61%);
+    --color-danger-light-theme-7: hsl(357, 58%, 52%);
+    --color-danger-light-theme-8: hsl(358, 59%, 41%);
+    --color-danger-light-theme-9: hsl(358, 72%, 28%);
+    --color-danger-light-theme-10: hsl(0, 100%, 16%);
+
+    --color-danger-light-theme-6-opacity-12: hsla(357, 75%, 61%, 12%);
+
+    --color-special-light-theme-1: hsl(286, 100%, 97%);
+    --color-special-light-theme-2: hsl(286, 61%, 89%);
+    --color-special-light-theme-3: hsl(285, 58%, 81%);
+    --color-special-light-theme-4: hsl(285, 55%, 72%);
+    --color-special-light-theme-5: hsl(284, 54%, 64%);
+    --color-special-light-theme-6: hsl(284, 54%, 56%);
+    --color-special-light-theme-7: hsl(284, 49%, 47%);
+    --color-special-light-theme-8: hsl(282, 56%, 37%);
+    --color-special-light-theme-9: hsl(279, 71%, 26%);
+    --color-special-light-theme-10: hsl(276, 100%, 16%);
+
+    --color-special-light-theme-6-opacity-12: hsla(284, 54%, 56%, 12%);
+
+    --color-text-light-theme-opacity-25: hsla(220, 3%, 19%, 25%);
+    --color-text-light-theme-opacity-45: hsla(220, 3%, 19%, 45%);
+    --color-text-light-theme-opacity-65: hsla(220, 3%, 19%, 65%);
+    --color-text-light-theme-opacity-88: hsla(220, 3%, 19%, 88%);
+    --color-text-light-theme-opacity-100: hsla(220, 3%, 19%, 100%);
+
+    --color-text-dark-theme-opacity-25: hsla(218, 7%, 76%, 25%);
+    --color-text-dark-theme-opacity-45: hsla(218, 7%, 76%, 45%);
+    --color-text-dark-theme-opacity-65: hsla(218, 7%, 76%, 65%);
+    --color-text-dark-theme-opacity-88: hsla(218, 7%, 76%, 88%);
+    --color-text-dark-theme-opacity-100: hsla(218, 7%, 76%, 100%);
+
+
+
+    /* 颜色名称映射 */
+    --color-general: var(--color-general-light-theme-6);
+    --color-general-light: var(--color-general-light-theme-5);
+    --color-general-lighter: var(--color-general-light-theme-3);
+    --color-general-lightest: var(--color-general-light-theme-2);
+    --color-general-dark: var(--color-general-light-theme-7);
+    --color-general-darker: var(--color-general-light-theme-9);
+    --color-general-darkest: var(--color-general-light-theme-10);
+
+    --color-general-glass: var(--color-general-light-theme-6-opacity-12);
+
+    --color-success: var(--color-success-light-theme-6);
+    --color-success-light: var(--color-success-light-theme-5);
+    --color-success-lighter: var(--color-success-light-theme-3);
+    --color-success-lightest: var(--color-success-light-theme-2);
+    --color-success-dark: var(--color-success-light-theme-7);
+    --color-success-darker: var(--color-success-light-theme-9);
+    --color-success-darkest: var(--color-success-light-theme-10);
+
+    --color-success-glass: var(--color-success-light-theme-6-opacity-12);
+
+    --color-warning: var(--color-warning-light-theme-6);
+    --color-warning-light: var(--color-warning-light-theme-5);
+    --color-warning-lighter: var(--color-warning-light-theme-3);
+    --color-warning-lightest: var(--color-warning-light-theme-2);
+    --color-warning-dark: var(--color-warning-light-theme-7);
+    --color-warning-darker: var(--color-warning-light-theme-9);
+    --color-warning-darkest: var(--color-warning-light-theme-10);
+
+    --color-warning-glass: var(--color-warning-light-theme-6-opacity-12);
+
+    --color-danger: var(--color-danger-light-theme-6);
+    --color-danger-light: var(--color-danger-light-theme-5);
+    --color-danger-lighter: var(--color-danger-light-theme-3);
+    --color-danger-lightest: var(--color-danger-light-theme-2);
+    --color-danger-dark: var(--color-danger-light-theme-7);
+    --color-danger-darker: var(--color-danger-light-theme-9);
+    --color-danger-darkest: var(--color-danger-light-theme-10);
+
+    --color-danger-glass: var(--color-danger-light-theme-6-opacity-12);
+
+    --color-special: var(--color-special-light-theme-6);
+    --color-special-light: var(--color-special-light-theme-5);
+    --color-special-lighter: var(--color-special-light-theme-3);
+    --color-special-lightest: var(--color-special-light-theme-2);
+    --color-special-dark: var(--color-special-light-theme-7);
+    --color-special-darker: var(--color-special-light-theme-9);
+    --color-special-darkest: var(--color-special-light-theme-10);
+
+    --color-special-glass: var(--color-special-light-theme-6-opacity-12);
+
+
+    /* 颜色别名兼容 */
+    --color-safe: var(--color-success-light-theme-6);
+    --color-safe-light: var(--color-success-light-theme-5);
+    --color-safe-lighter: var(--color-success-light-theme-3);
+    --color-safe-lightest: var(--color-success-light-theme-2);
+    --color-safe-dark: var(--color-success-light-theme-7);
+    --color-safe-darker: var(--color-success-light-theme-9);
+    --color-safe-darkest: var(--color-success-light-theme-10);
+    
+    --color-safe-glass: var(--color-success-light-theme-6-opacity-12);
+
+    --color-warn: var(--color-warning-light-theme-6);
+    --color-warn-light: var(--color-warning-light-theme-5);
+    --color-warn-lighter: var(--color-warning-light-theme-3);
+    --color-warn-lightest: var(--color-warning-light-theme-2);
+    --color-warn-dark: var(--color-warning-light-theme-7);
+    --color-warn-darker: var(--color-warning-light-theme-9);
+    --color-warn-darkest: var(--color-warning-light-theme-10);
+
+    --color-warn-glass: var(--color-warning-light-theme-6-opacity-12);
+
+    
+    /* 文本颜色名称映射 */
+    --color-text-primary: var(--color-text-light-theme-opacity-100);
+    --color-text-regular: var(--color-text-light-theme-opacity-88);
+    --color-text-secondary: var(--color-text-light-theme-opacity-65);
+    --color-text-tertiary: var(--color-text-light-theme-opacity-45);
+    --color-text-quaternary: var(--color-text-light-theme-opacity-25);
+
+    --color-text-placeholder: var(--color-text-tertiary);
+    --color-text-disabled: var(--color-text-tertiary);
+
+
+    /* 文本尺寸 */
+    --font-size-base: 16px;
+    --font-size-title-1: 2rem;
+    --font-size-title-2: 1.75rem;
+    --font-size-title-3: 1.5rem;
+    --font-size-extra-large: 1.25rem;
+    --font-size-large: 1.125rem;
+    --font-size-medium: 1rem;
+    --font-size-small: 0.875rem;
+    --font-size-extra-small: 0.75rem;
+
+
+    /* 组件高度 */
+    --height-component: calc(var(--font-size-base) * 2.25);
+    --height-component-large: calc(var(--font-size-base) * 2.75);
+    --height-component-small: calc(var(--font-size-base) * 1.625);
+
+
+    /* 间距 */
+    --gap-extra-large: calc(var(--font-size-base) * 3);
+    --gap-large: calc(var(--font-size-base) * 2);
+    --gap-demi-large: calc(var(--font-size-base) * 1.5);
+    --gap-medium: var(--font-size-base);
+    --gap-demi-small: calc(var(--font-size-base) * 0.75);
+    --gap-small: calc(var(--font-size-base) * 0.5);
+    --gap-extra-small: calc(var(--font-size-base) * 0.25);
+
+
+    /* 图标尺寸 */
+    --icon-size-extra-large: calc(var(--font-size-base) * 2);
+    --icon-size-large: calc(var(--font-size-base) * 1.75);
+    --icon-size-medium: calc(var(--font-size-base) * 1.5);
+    --icon-size-small: calc(var(--font-size-base) * 1.25);
+    --icon-size-extra-small: var(--font-size-base);
+
+
+    /* 动画速度 */
+    --animation-speed-base: 1s;
+    --animation-speed-slow: calc(var(--animation-speed-base) * 0.7);
+    --animation-speed-demi-slow: calc(var(--animation-speed-base) * 0.5);
+    --animation-speed-medium: calc(var(--animation-speed-base) * 0.3);
+    --animation-speed-fast: calc(var(--animation-speed-base) * 0.15);
+    
+    --animation-speed-button-switch: var(--animation-speed-fast);
+
+
+    --fh-corner-marker-color: rgba(255, 255, 255, 0.5);
+    --fh-corner-marker-angle: -135deg;
+    --fh-corner-marker-angle-reverse: 45deg;
+    --fh-corner-marker: linear-gradient(var(--fh-corner-marker-angle), var(--fh-corner-marker-color) 5px, transparent 5px);
+    --fh-corner-marker-border-width: 4px;
+    --fh-corner-marker-border-color: var(--fh-corner-marker-color) var(--fh-corner-marker-color) transparent transparent;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-text-primary: var(--color-text-dark-theme-opacity-100);
+        --color-text-regular: var(--color-text-dark-theme-opacity-88);
+        --color-text-secondary: var(--color-text-dark-theme-opacity-65);
+        --color-text-tertiary: var(--color-text-dark-theme-opacity-45);
+        --color-text-quaternary: var(--color-text-dark-theme-opacity-25);
+    }
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>数字转换器 - SPR Converter</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/number.css">
+    <script src="js/jquery-1.7.2.min.js"></script>
+</head>
+<body>
+    <div id="topbar">
+        <div class="page">
+            <h1>SPR Converter</h1>
+            <h2>数字转换器</h2>
+        </div>
+    </div>
+
+    <div id="infobox">
+        <div class="page">
+            <div id="infobox-content">消息框</div>
+            <div id="infobox-close">CLOSE</div>
+        </div>
+    </div>
+
+    <div class="page">
+        <dl class="spr-formtable">
+            <dt>数字</dt>
+            <dd><input type="text" name="" id="num"></dd>
+            <dt>转换类型</dt>
+            <dd><select id="numtype">
+                <option value ="num-zh" selected>中文</option>
+                <option value ="num-zh-gmr">中文（带单位）</option>
+                <option value ="num-zh-gmr-f">中文（带单位大写）</option>
+                <option value ="num-sup">上标</option>
+                <option value ="num-sub">下标</option>
+                <option value ="num-en-u">英文字母编号（大写）</option>
+                <option value ="num-en-l">英文字母编号（小写）</option>
+                <option value ="num-jp-hira">平假名编号</option>
+                <option value ="num-jp-kata">片假名编号</option>
+            </select></dd>
+            <dt>输出</dt>
+            <dd><textarea class="textbox" name="" id="output" cols="30" rows="10"></textarea></dd>
+            <dt></dt>
+            <dd><input class="default" type="button" value="生    成" onclick="start();"></dd>
+        </dl>
+    </div>
+
+    <script src="js/common.js"></script>
+    <script src="js/mathematics.js"></script>
+    <script>
+        $(document).ready(function(){
+            var num = getUrlPmt("num");
+            var numtype = getUrlPmt("numtype");
+            var ok = getUrlPmt("ok");
+            if (num != false) $("#num").val(num);
+            if (numtype != false) $("#numtype").val(numtype);
+            if (ok == 1) start();
+        });
+
+        function start() {
+            var text;
+            var number = $('#num').val();
+            if (isNaN($('#num').val())) {
+                outErr("必须是数字！");
+                return;
+            }
+            switch ($('#numtype').val()) {
+                case "num-zh":
+                    text = numZh(number);
+                    break;
+                case "num-zh-gmr":
+                    text = numZhGmr(number);
+                    break;
+                case "num-zh-gmr-f":
+                    text = numZhGmr(number,1);
+                    break;
+                case "num-sup":
+                    text = numCorner(number);
+                    break;
+                case "num-sub":
+                    text = numCorner(number,1);
+                    break;
+                case "num-en-u":
+                    text = numEn(number);
+                    break;
+                case "num-en-l":
+                    text = numEn(number,1);
+                    break;
+                case "num-jp-hira":
+                    text = numHira(number - 1);
+                    break;
+                case "num-jp-kata":
+                    text = numKata(number - 1);
+                    break;
+            }
+            $('#output').val(text);
+            $('#output').focus();
+            $('#output').select();
+        }
+    </script>
+</body>
+</html>

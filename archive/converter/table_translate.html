@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>表格转换器 - SPR Converter</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/table_translate.css">
+    <script src="js/jquery-1.7.2.min.js"></script>
+</head>
+<body>
+    <div id="topbar">
+        <div class="page">
+            <h1>SPR Converter</h1>
+            <h2>表格转换器</h2>
+        </div>
+    </div>
+
+    <div id="infobox">
+        <div class="page">
+            <div id="infobox-content">消息框</div>
+            <div id="infobox-close">CLOSE</div>
+        </div>
+    </div>
+
+    <div class="page">
+        <div id="toolbar" class="flex2fr">
+            <div class="left">
+                <select id="exp">
+                    <option value ="csv" selected>CSV</option>
+                    <option value ="json">JSON</option>
+                    <!--<option value ="lang">.lang</option>-->
+                </select>
+                <span id="switch">转换至</span>
+                <select id="ext">
+                    <option value ="csv">CSV</option>
+                    <option value ="bbcode" selected>BBCode</option>
+                    <option value ="html">HTML</option>
+                    <option value ="json">JSON</option>
+                    <option value ="lang">.lang</option>
+                    <option value ="md">Markdown</option>
+                    <option value ="mw">MediaWiki</option>
+                </select>
+            </div>
+            <div class="right">
+                <input class="default" type="button" value="转    换" onclick="start()">
+            </div>
+        </div>
+
+        <div id="content" class="flex2fr">
+            <div class="left">
+                <textarea class="textbox code" name="" id="input" cols="30" rows="10"></textarea>
+            </div>
+            <div class="right">
+                <textarea class="textbox code" name="" id="output" cols="30" rows="10"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/common.js"></script>
+    <script src="js/table_translate.js"></script>
+    <script>
+        $('#input').val("示例1,示例2,示例3\n示例A,示例B,示例C");
+
+        $(document).ready(function(){
+            var clear = getUrlPmt("clear");
+            var exp = getUrlPmt("exp");
+            var ext = getUrlPmt("ext");
+            var input = getUrlPmt("input");
+            var ok = getUrlPmt("ok");
+            if (clear == 1) $("input[type='text'], textarea").val("");
+            if (exp != false) $("#exp").val(exp);
+            if (ext != false) $("#ext").val(ext);
+            if (input != false) $("#input").val(input);
+            if (ok == 1) start();
+        });
+    </script>
+</body>
+</html>

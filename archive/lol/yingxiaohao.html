@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>营销号文章生成器</title>
+	<link rel="stylesheet" href="main.css">
+	<style>
+		input {
+			width: 600px
+		}
+	</style>
+</head>
+
+<body>
+	<mainpage>
+		<header>
+			<h1>营销号文章生成器</h1>
+			<h1note>
+				<published>2020年6月14日</published>
+			</h1note>
+		</header>
+		
+		<p>点击空白处刷新</p>
+		<pb><span>主要对象</span><input type="text" id="name" value="营销号文章生成器"></pb>
+		<pb><span>发生事件</span><input type="text" id="event" value="突然出现"></pb>
+		<pb><span>发出疑问</span><input type="text" id="eq" value="是怎么回事呢"></pb>
+		<pb><span>自我称呼</span><input type="text" id="user" value="小编"></pb>
+		<pb><span>核心内容</span><input type="text" id="core" value="其实就是程序员闲着没事干"></pb>
+		<pb><span>特别惊讶</span><input type="text" id="event2" value="就这么莫名其妙地出现"></pb>
+		<hr>
+		<div id="output"></div>
+	</mainpage>
+	
+	<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+	<script>
+		$(document).ready(function(){
+			outputText();
+		});
+		
+		$("input").change(function(){
+			outputText();
+		});
+		
+		function outputText() {
+			var sname = $("#name").val();
+			var sevent = $("#event").val();
+			var eq = $("#eq").val();
+			var user = $("#user").val();
+			var core = $("#core").val();
+			var event2 = $("#event2").val();
+			
+			$("#output").empty();
+			$("#output").append('<p>' + sname + sevent + eq + '？' + sname + '相信大家都很熟悉，但是' + sname + sevent + eq + '？下面就让' + user + '带大家一起了解吧。<p><p>' + sname + sevent + '，' + core + '，大家可能会很惊讶' + sname + '怎么会' + event2 + '呢？但事实就是这样，' + user + '也感到非常惊讶。</p><p>这就是关于' + sname + sevent + '的事情了，大家有什么想法呢，欢迎在评论中告诉' + user + '一起讨论哦！</p>');
+		}
+	</script>
+</body>
+</html>

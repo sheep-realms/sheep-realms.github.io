@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SPR Work Desktop</title>
+        <link rel="stylesheet" href="css/common.css">
+        <script src="js/jquery-1.7.2.min.js"></script>
+        <script src="src/lang/zh_CN.js"></script>
+    </head>
+
+    <body>
+        <div id="clock">
+            <p class="date">{{ date }}</p>
+            <p class="time">{{ time }}</p>
+            <p class="text">Hello, World!</p>
+        </div>
+
+        <div class="main">
+            <div id="background"></div>
+            <div id="start-window">
+                <div id="cmdlist" class="start-win hide">
+                    <div class="cmditem">NODE 1</div>
+                    <div class="cmditem">NODE 2</div>
+                    <div class="cmditem lost">NODE 3</div>
+                    <div class="cmditem">NODE 4</div>
+                    <div class="cmditem">NODE 5</div>
+                    <div class="cmditem lost">NODE 6</div>
+                    <div class="cmditem lost">NODE 7</div>
+                    <div class="cmditem">NODE 8</div>
+                    <div class="cmditem lost">NODE 9</div>
+                    <div class="cmditem">NODE 10</div>
+                    <div class="cmditem lost">NODE 11</div>
+                    <div class="cmditem lost">NODE 12</div>
+                    <div class="cmditem lost">NODE 13</div>
+                    <div class="cmditem lost">NODE 14</div>
+                    <div class="cmditem lost">NODE 15</div>
+                    <div class="cmditem lost">NODE 16</div>
+                    <div class="cmditem lost">NODE 17</div>
+                    <div class="cmditem lost">NODE 18</div>
+                    <div class="cmditem lost">NODE 19</div>
+                    <div class="cmditem lost">NODE 20</div>
+                    <div class="cmditem lost">NODE 21</div>
+                    <div class="cmditem lost">NODE 22</div>
+                    <div class="cmditem lost">NODE 23</div>
+                    <div class="cmditem lost">NODE 24</div>
+                    <div class="cmditem lost">NODE 25</div>
+                    <div class="cmditem lost">NODE 26</div>
+                    <div class="cmditem lost">NODE 27</div>
+                    <div class="cmditem lost">NODE 28</div>
+                    <div class="cmditem lost">NODE 29</div>
+                    <div class="cmditem lost">NODE 30</div>
+                    <div class="cmditem lost">NODE 31</div>
+                    <div class="cmditem lost">NODE 32</div>
+                    <div class="cmditem lost">NODE 33</div>
+                    <div class="cmditem lost">NODE 34</div>
+                    <div class="cmditem lost">NODE 35</div>
+                    <div class="cmditem lost">NODE 36</div>
+                    <div class="cmditem lost">NODE 37</div>
+                    <div class="cmditem lost">NODE 38</div>
+                    <div class="cmditem lost">NODE 39</div>
+                    <div class="cmditem lost">NODE 40</div>
+                    <div class="cmditem lost">NODE 41</div>
+                    <div class="cmditem lost">NODE 42</div>
+                    <div class="cmditem lost">NODE 43</div>
+                </div>
+
+                <div id="cmdout" class="start-win hide">
+                    <div id="cmdouttxt"></div>
+                    <div id="cmdoutmedia" class="close">
+                        <iframe id="iframe-media" src="" frameborder="0"></iframe>
+                    </div>
+                </div>
+
+                <div id="cmdtask" class="start-win hide">
+                    <!--<div class="task-item">
+                        <div class="task-title">Main</div>
+                        <div class="task-content">2333</div>
+                    </div>-->
+                    <div class="task-item"
+                        data-id="1"
+                        data-name="about"
+                    >
+                        <div class="task-title">About</div>
+                        <div class="task-content">
+                            Project: SPR Work Desktop<br>
+                            Author: Sheep-realms<br>
+                            <hr>
+                            Version: Alpha 0.5<br>
+                        </div>
+                    </div>
+
+                    <div class="task-item"
+                        data-id="2"
+                        data-name="testinfo"
+                    >
+                        <div class="task-title">测试版本须知</div>
+                        <div class="task-content">
+                            该项目仍处于初期开发阶段，很多功能仍未完善，并且可能存在故障，当前效果并非最终展现效果。
+                        </div>
+                    </div>
+                </div>
+
+                <div id="cmdipt" class="start-win hide">
+                    <iframe id="id_iframe" name="nm_iframe" style="display:none;"></iframe>
+                    <form id="cmdform" action="" method="post" target="nm_iframe">
+                        <input type="text" id="cmdipttxt" autocomplete="off" >
+                        <input type="submit" value="执行" id="spr-cmd-ok" style="display:none;" />
+                    </form>
+                </div>
+
+            </div>
+
+            <div id="footer">
+                <div id="cmdstart" accesskey="r"></div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="js/vue.min.js"></script>
+        <script type="text/javascript" src="js/timer.js"></script>
+        <script type="text/javascript" src="js/common.js"></script>
+    </body>
+</html>
